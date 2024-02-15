@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Nominas.css">
+    <title>Calculadora nóminas</title>
+    <script src="Nominas.js" defer></script>
+</head>
+<body>
+    <main>
+        <section class="header">
+            <div class="rectangle">
+                <label for="Empresa">Empresa: </label> <input type="text" id="Empresa"><br>
+                <label for="Domicilio">Domicilio: </label> <input type="text" id="Domicilio"><br>
+                <label for="CIF">CIF: </label> <input type="text" id="CIF"><br>
+                <label for="CCC">CCC: </label> <input type="text" id="CCC">
+            </div>
+            <div class="rectangle">
+                <label for="Trabajador">Trabajador: </label><input type="text" id="Trabajador"><br>
+                <label for="NIF">NIF: </label><input type="text" id="NIF"><br>
+                <label for="NumSeguridadSocial">Núm. de Afil Seguridad Social: </label><input type="text" id="NumSeguridadSocial"><br>
+                <label for="grupoCotizacion">Grupo de Cotización: </label>
+                <select id="grupoCotizacion">
+                    <option selected>Elige: </option>
+                    <optgroup label="Del 1 al 7">
+                        <option value="1">Ingenieros y licenciados</option>
+                        <option value="2">Ingenieros técnicos, peritos y ayudantes titulados</option>
+                        <option value="3">Jefes de administración y de taller</option>
+                        <option value="4">Ayudantes no titulados</option>
+                        <option value="5">Oficiales administrativos</option>
+                        <option value="6">Subalternos</option>
+                        <option value="7">Auxiliares administrativos</option>
+                    </optgroup>
+                    <optgroup label="Del 8 al 11">
+                        <option value="8">Oficiales de 1º y 2º</option>
+                        <option value="9">Oficiales de 3º y especialistas</option>
+                        <option value="10">Peones</option>
+                        <option value="11">Trabajadores menores de 18 años</option>
+                    </optgroup>
+                </select>
+            </div>
+        </section>
+        <section class="body">
+            <div class="navArriba">
+                <label for="meses">Periodo de liquidación: </label>
+                <select id="meses">
+                    <option value="31">Enero</option>
+                    <option value="28">Febrero</option>
+                    <option value="31">Marzo</option>
+                    <option value="30">Abril</option>
+                    <option value="31">Mayo</option>
+                    <option value="30">Junio</option>
+                    <option value="31">Julio</option>
+                    <option value="31">Agosto</option>
+                    <option value="30">Septiembre</option>
+                    <option value="31">Octubre</option>
+                    <option value="30">Noviembre</option>
+                    <option value="31">Diciembre</option>
+                </select>
+                <label for="anio">Año: </label><input style="width: 5%;" id="anio" type="number" min="2000" max="2025">
+                <label for="totalDias">Total Dias: </label><input id="totalDias" class="numeroChiquito" readonly>
+
+                <!-- ESTUDIARLO -->
+                <!-- <label for="yearStart">Periodo de liquidación: del</label><input id="yearStart" type="date"> al <input id="yearEnd" type="date"> 
+                <label for="totalDias">Total Dias: </label><input id="totalDias" class="doteados" readonly> -->
+            </div>
+            <div class="devengos">
+                <h2>DEVENGOS</h2>
+                <ol>
+                    <li class="Salariales">
+                        <p>Percepciones salariales</p>
+                        <label for="salarioBase">Salario base</label><input class="doteados" type="text" id="salarioBase"><input id="salarioBaseSalida"  type="text" class="calculados lineados"><br>
+                        <label for="calculoComplementosSalariales">Complementos salariales</label><br>
+                        <input id="primerCompletxt" class="lineados" type="text"><input id="primerCompleCash" class="lineados" type="text"><br>
+                        <input id="segundoCompletxt" class="lineados" type="text"><input id="segundoCompleCash" class="lineados" type="text"><br>
+                        <input id="tercerCompletxt" class="lineados" type="text"><input id="tercerCompleCash" class="lineados" type="text"><input style id="calculoComplementosSalariales" class="doteados" type="text"><br>
+                        <label for="HorasExtraordinariasDevengosTipoEntrada">Horas extraordinarias</label>
+                        <select name="HorasExtra" id="HorasExtraordinariasDevengosTipoEntrada">
+                            <option value="" selected>Tipo de horas extra: </option>
+                            <option value="FuerzaMayor">Fuerza Mayor</option>
+                            <option value="Normal">Normales</option>
+                        </select>
+                        <input  id="HorasExtraordinariasDevengosCashEntrada" class="doteados" placeholder="valor de las h.e" type="text"><input id="HorasExtraordinariasCalculadas" class="doteados calculados" readonly><br>
+                        <label for="HorasComplementarias">Horas complementarias (contratos a tiempo parcial)</label><input id="HorasComplementarias" class="doteados" type="text"><br>
+                        <label for="GratificacionesExtraordinariasEntrada">Gratificaciones extraordinarias</label><input id="GratificacionesExtraordinariasNumero" class="doteados" placeholder="Numero" type="text"><input id="GratificacionesExtraordinariasEntrada" class="doteados" placeholder="(Complementos separados por ,)" type="text"><input id="GratificacionesExtraordinariasSalida" type="text" class="lineadas"><br>
+                        <label for="SalarioEspecie">Salario en especie</label><input id="SalarioEspecie" class="doteados" type="text">
+                    </li>
+                    <li class="NoSalariales">
+                        <p>Percepciones no salariales</p>
+                        <label for="IndemnizacionesSuplidosEntrada">Indemnizaciones o suplidos</label><br>
+                        <input id="IndemnizacionesSuplidosEntrada" class="lineados" type="text"><input class="doteados" type="text" id="primerNOCompleCashEntrada"><br>
+                        <label for="IndemnizacionesDeLaSegSocialEntrada">Prestaciones o indemnizaciones de la seguridad social</label><br>
+                        <input id="IndemnizacionesDeLaSegSocialEntrada" class="lineados" type="text"><input class="doteados calculados" type="text" id="segundoNOCompleCashEntrada"><br>
+                        <label for="IndemnizacionesDebidoTrasSuspDespEntrada">Indemnizaciones por traslados suspensiones o despidos</label><br>
+                        <input id="IndemnizacionesDebidoTrasSuspDespEntrada" class="lineados" type="text"><input class="doteados calculados" type="text" id="tercerNOCompleCashEntrada"><br>
+                        <label for="OtrasPercepcionesNoSalarialesEntrada">Otras percepciones no salariales</label><br>
+                        <input id="OtrasPercepcionesNoSalarialesEntrada" class="lineados" type="text"><input class="doteados calculados" type="text" id="cuartoNocompleCashEntrada"><input type="text" id="ComplementosNOSalarialesSalida" readonly>
+                    </li>
+                </ol>
+                <!-- NECESITO QUE ESTEN EN LA MISMA LINEA, el p y el label -->
+                <label for="TotalDevengado2Entrada">TOTAL, DEVENGADO </label><input class="doteados" id="TotalDevengadoEntrada"></input><input class="doteados" id="TotalDevengado1Entrada"></input><input class="doteados" id="TotalDevengado2Entrada" readonly>
+                
+            </div>
+            <div class="deducciones">
+                <h2>DEDUCCIONES</h2>
+                <ol>
+                    <li>Aportaciones del trabajador a las cotizaciones a la seguridad social y conceptos de recaudación conjunta<br>
+                        <table style="width: 100%;">
+                            <tr>
+                                <th>BASES</th>
+                                <th>Tipo</th>
+                                <th>Resultado</th>
+                            </tr>
+                            <tr>                  
+                                <td><label for="contingenciasComunesCalculadas">Contingencias comunes</label> </td>
+                                <td><input class="porcentajes"  value="4,82%" readonly></td>
+                                <td><input id="contingenciasComunesCalculadas" class="doteados" readonly></td>
+                            </tr>
+                            <tr>
+                                <td><label for="contingenciasDesempleoTrabajadorCalculada">Desempleo</label> </td>
+                                <td><input class="porcentajes"  value="1,55%" readonly></td>
+                                <td><input id="contingenciasDesempleoTrabajadorCalculada" class="doteados" readonly></td>
+                            </tr>
+                            <tr>
+                                <td><label for="formacionProfesionalCalculada">Formacion profesional</label></td>
+                                <td><input class="porcentajes"  value="0.10%" readonly></td>
+                                <td><input id="formacionProfesionalCalculada" class="doteados" readonly></td>
+                            </tr>
+                            <tr>
+                                <td><label for="horasExtraordinariasDeduccionesNormalesCalculada">Horas extraordinarias normales</label></td>
+                                <td><input class="porcentajes"  value="4,70%" readonly></td>
+                                <td><input id="horasExtraordinariasDeduccionesNormalesCalculada" class="doteados" readonly></td>
+                            </tr>
+                            <tr>
+                                <td><label for="HorasExtraordinariasDeduccionesFuerzaMayor">Horas extraordinarias fuerza mayor</label></td>
+                                <td><input class="porcentajes"  value="2,00%" readonly></td>
+                                <td><input id="HorasExtraordinariasDeduccionesFuerzaMayor" class="doteados" readonly></td>
+                            </tr>
+                            <tr>
+                                <td><label for="TotalAportaciones"><strong><em>TOTAL APORTACIONES</em></strong></label></td>
+                                <td></td>
+                                <td><input class="doteados" type="text" id="TotalAportaciones" readonly></td>
+                            </tr>
+                            <tr>
+                                <td><label for="ImpuestoPersonasFisicasEntrada">Impuesto sobre la renta de personas físicas</label></td>
+                                <td> <input class="porcentajes" type="text" id="ImpuestoPersonasFisicasEntrada"></td>
+                                <td><input class="doteados" id="ImpuestoPersonasFisicasSalida" readonly></td>
+                                <!-- <td></td> -->
+                            </tr>
+                            <tr>
+                                <td><label for="AnticiposEntrada">Anticipos</label></td>
+                                <td><input class="porcentajes" type="text" id="AnticiposEntrada"></td>
+                                <td><input class="doteados" id="anticiposSalida"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="ValorProductosEspecie">Valor de los productos recibidos en especie</label></td>
+                                <td></td>
+                                <td><input class="doteados" id="ValorProductosEspecie"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="OtrasDeducciones">Otras deducciones</label></td>
+                                <td><input class="doteados"></td>
+                                <td><input class="doteados" id="OtrasDeducciones" type="text"></td>
+                            </tr>
+                            
+                        </table>
+                        </li>
+                        <li>I.R.P.F
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td><label for="ImpuestoPersonasFisicasEntrada">Impuesto sobre la renta de personas físicas</label></td>
+                                    <td><input class="porcentajes" type="text" id="ImpuestoPersonasFisicasEntrada"></td>
+                                    <td><input class="doteados" id="ImpuestoPersonasFisicasSalida" readonly></td>
+                                    <td></td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li>Anticipos
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td style="width: 46%;"><label for="AnticiposEntrada">Anticipos</label></td>
+                                    <td><input class="porcentajes" type="text" id="AnticiposEntrada"></td>
+                                    <td><input class="doteados" id="anticiposSalida"></td>
+                                    <td></td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li>Valor de los productos recibidos en especie
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td><label for="ValorProductosEspecie">Valor de los productos recibidos en especie</label></td>
+                                    <td><input class="porcentajes" type="text" id="AnticiposEntrada"></td>
+                                    <td><input class="doteados" id="ValorProductosEspecie"></td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li>Otras deducciones
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td style="width: 46%;"><label for="ValorProductosEspecie">Otras deducciones</label></td>
+                                    <td><input class="doteados" id="ValorProductosEspecie0"></td>
+                                    <td><input class="doteados" id="ValorProductosEspecie"></td>
+                                </tr>
+                            </table>
+                        </li>
+                        <table>
+                           
+                    
+                          
+                            <tr>
+                                <td><label for="TotalDeducir2"><strong><em>TOTAL A DEDUCIR</em></strong></label></td>
+                                
+                                <td><input class="doteados" id="TotalDeducir"></td>
+                                <td><input class="doteados" id="TotalDeducir2"></td>
+                                
+                                
+                            </tr>
+                            <tr>
+                                <td><label for="LiquidoTotalPercibir2"><strong><em>LIQUIDO TOTAL A PERCIBIR (A-B)</em></strong></label></td>
+                                <td> <input class="doteados" id="LiquidoTotalPercibir"></td>
+                                <td><input class="doteados" id="LiquidoTotalPercibir1"><input class="doteados" id="LiquidoTotalPercibir2">  </td>
+                            </tr>
+                        </table>   
+                    </ol>
+                
+              
+                
+               
+                <input id="FechaDeducciones" type="date"><br>
+                <label for="Firma">Firma y sello de la empresa</label>
+            </div>
+            <div class="determinacion">
+                <h2>DETERMINACION DE LAS BASES DE COTIZACION A LA SEGURIDAD SOCIAL Y CONCEPTOS DE RECAUDACION CONJUNTA Y DE LA BASE SUJETA A LA RETENCION DEL IRPF Y APORTACION DE LA EMPRESA</h2>
+
+                <table id="determinacion" style="width: 100%;">
+                    <tr>
+                        <th>CONCEPTO</th>
+                        <th>BASE</th>
+                        <th>TIPO</th>
+                        <th>Aportacion Empresa</th>
+                    </tr>
+                    <tr>
+                        <td>1.Contingecias comunes</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>importe remunaracion</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Mensual <input class="doteados" id="mensual" type="text"></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Importe prorrata pagas extra</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Extraordinarias</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Total <input class="doteados"></td>
+                        <td><input id="contingenciasComunesCalculadasEmpresa" class="lineados" readonly></td>
+                        <td><input class="porcentajes" value="24.18%" readonly></td>
+                        <td><input class="lineados" readonly></td>
+                    </tr>
+                    <tr>
+                        <td>AT y EP <input class="doteados"></td>
+                        <td><input class="lineados" readonly></td>
+                        <td><input class="porcentajes" id="tarifaPrim"></td> <!--Poner un select de las primas-->
+                        <td><input class="lineados" id="tarifaPrimasCalculada" readonly></td>
+                    </tr>
+                    <tr>
+                        <td><label for="desempleoTOTAL">Desempleo</label></td>
+                        <td><input class="lineados" id="desempleoTOTAL" type="text" readonly></td>
+                        <td><input class="porcentajes" value="5.50%" readonly></td>
+                        <td><input class="lineados" id="CuotaCotizacionDesempleoEmpresa" readonly></td>
+                    </tr>
+                    <tr>
+                        <td><label for="DeterminacionFormacionProfesional">Formación profesional</label></td>
+                        <td><input class="lineados" id="DeterminacionFormacionProfesional" type="text" readonly></td>
+                        <td><input class="porcentajes" value="0.60%" readonly></td>
+                        <td><input id="formacionProfesionalCalculadaEmpresa" class="lineados" readonly></td>
+                    </tr>
+                    <tr>
+                        <td><label for="FondoGarantiaSalarial">Fondo garantía salarial</label></td>
+                        <td><input  class="lineados colocacion" id="FondoGarantiaSalarial" readonly></td>
+                        <td><input class="porcentajes" value="0.20%" readonly></td>
+                        <td><input id="fondoGarantiaSalarialEmpresa" class="lineados" type="text" readonly></td>
+                    </tr>
+                    <tr>
+                        <td>Cotizacion adicional horas extraordinarias</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><label for="OtrasHorasExtras">Otras horas extras</label></td>
+                        <td><input class="lineados" type="text" ></td>
+                        <t><input class="lineados" type="text" ></t>
+                        <td><input class="lineados" type="text" id="OtrasHorasExtras"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="DeterminacionFuerzaMayor">Fuerza mayor</label></td>
+                        <td><input class="lineados" type="text" id="fuerzaMayorEmpresa" ></td>
+                        <td><input class="lineados" type="text" value="12.00%" readonly></td>
+                        <td><input class="lineados" type="text" id="DeterminacionFuerzaMayor"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="DeterminacionIRPF">Base sujeta a la retención del I.R.P.F</label></td>
+                        <td><input class="lineados" type="text" id="DeterminacionIRPF"></td>
+                        <td></td>
+                        <td><input class="lineados" type="text" id="determinacionIRPFtotal"></td>
+                    </tr>
+                </table>
+          
+            </div>
+            
+            <div>
+                <button onclick="calcular()">CALCULAR</button>
+            </div>
+        </section>
+    </main>
+        <!-- <footer>
+            <div class="redesSociales">
+                <a href="https://www.instagram.com/d.d1az/" target="_blank" rel="noopener noreferrer"><img src="img/instagram.svg" alt="Instagram"></a>
+                <a href="https://steamcommunity.com/profiles/76561199416756259/" target="_blank" rel="noopener noreferrer"><img src="img/steam.svg" alt="Steam"></a>
+                <a href="https://twitter.com/lD4N1l_" target="_blank" rel="noopener noreferrer"><img src="img/twitterx.svg" alt="Twitter"></a>
+            </div>
+            <div class="copyright">
+                <p>Autor: D.D</p>
+                <p>&copy; 2024 Nominas</p>
+            </div>
+        </footer> -->
+   
+    <script>
+        ejecutar();
+    </script>
+</body>
+</html>
+
+
+<!--  function insertarDatosNav(){} //No necesaria se hace en calcularTotalDias
+
+    function calcular(){
+            //isLeapYear(ayio);
+            anioBisiesto();
+            calcularTotalDias();
+            //insertarDatosHeader();
+            calcularComplementosSalariales();
+            calcularComplementosSalariales();
+            calcularSalario();
+            calcularPagasExtra();
+            calcularComplementoNoSalariales();
+            ImpuestoRentaPersonasFisicas();
+            liquidoPercibir();
+
+            calcularBaseCotizacionContingenciasComunes();
+            calcularCuotaCotizacionContingenciasProfesionales();
+            calcularBaseCotizacionDesempleo();
+            calcularBaseCotizacionFormacionProfesional();
+            calcularBaseCotizacionFogasa();
+            calcularBaseCotizacionHorasExtras();
+
+            calcularCuotaCotizacionContingenciasComunes();
+            calcularCuotaCotizacionContingenciasProfesionales();
+            calcularCuotaCotizacionDesempleo();
+            calcularCuotaCotizacionFormacionProfesional();
+            calcularCuotaCotizacionFogasa();
+            calcularCuotaCotizacionHorasExtras();
+        }
+            liquidoPercibido = salario - impuesto;
+            document.getElementById("LiquidoTotalPercibir2").innerHTML = liquidoPercibido;
+        }
+        function calcularComplementosSalariales(){
+            
+            var primer = document.getElementById("primerCompleCash").value;
+            var segund = document.getElementById("segundoCompleCash").value;
+            var tercer = document.getElementById("tercerCompleCash").value;
+
+            var primertxt = document.getElementById("primerCompletxt").value;
+            var segundtxt = document.getElementById("segundoCompletxt").value;
+            var tercertxt = document.getElementById("tercerCompletxt").value;
+
+            if(primer === null || primertxt === null){
+                document.getElementById("primerCompleCash").innerHTML = 0;
+                document.getElementById("primerCompletxt").innerHTML = "No hay";
+            }else{
+                document.getElementById("primerCompleCash").innerHTML = primer;
+                document.getElementById("primerCompletxt").innerHTML = primertxt;
+            }
+            
+            if(segund === null || segundtxt === null){
+                document.getElementById("segundoCompleCash").innerHTML = 0;
+                document.getElementById("segundoCompletxt").innerHTML = "No hay";
+            }else{
+                document.getElementById("segundoCompleCash").innerHTML = segund;
+                document.getElementById("segundoCompletxt").innerHTML = segundtxt;
+            }
+            if(tercer === null || tercertxt === null){
+                document.getElementById("tercerCompleCash").innerHTML = 0;
+                document.getElementById("tercerCompletxt").innerHTML = "No hay";
+            }else{
+                document.getElementById("tercerCompleCash").innerHTML = tercer;
+                document.getElementById("tercerCompletxt").innerHTML = tercertxt;
+            }
+
+            //Posible parsefloat
+            complementosSalariales = parseFloat(primer) + parseFloat(segund) + parseFloat(tercer);
+            document.getElementById("calculoComplementosSalariales").innerHTML = complementosSalariales;
+        }
+
+        function calcularSalario() {
+            var salarioVariable = parseFloat(document.getElementById("salarioBase").value);
+
+            if(salarioVariable < 500){
+                salario = salarioVariable * totalDias;
+            }else{
+                salario = salarioVariable;
+            }
+                salario = parseFloat(salarioVariable) + complementosSalariales;
+                document.getElementById("salarioBaseSalida").innerHTML = salario;
+        }
+
+        function calcularPagasExtra(){ 
+            var pagas = document.getElementById('GratificacionesExtraordinariasNumero').value;
+            var varias = document.getElementById('GratificacionesExtraordinariasEntrada').value.split(',');
+            var grupoCotizacion = parseFloat(document.getElementById('grupoCotizacion').value);
+            var complementos = 0;
+            var remuneracion;
+
+            console.log("pagas", pagas)
+            console.log("varias", varias)
+            console.log("grupo", grupoCotizacion)
+
+
+            if (pagas === null || varias === null){
+                pagasExtras = 0.0;
+            }else{
+                for (var i = 0; i < varias.length; i++) {
+                    complementos += parseFloat(varias[i]) || 0; //No se donde se pone
+                    
+                }
+                if (grupoCotizacion >= 1 && grupoCotizacion <= 7) {
+                    remuneracion = (pagas * complementos) / 12;
+                    console.log("remunera",remuneracion)
+                } else {
+                    remuneracion = ((pagas * 30) * complementos)/anio;
+                }
+                pagasExtras = remuneracion;
+                console.log("pagas",pagasExtras)
+               
+            }
+            document.getElementById("GratificacionesExtraordinariasSalida").innerHTML = parseFloat(pagasExtras);
+        }
+
+        function calcularComplementoNoSalariales(){
+
+            var primer = document.getElementById("primerNOCompleCashEntrada").value;
+            var segundo = document.getElementById("segundoNOCompleCashEntrada").value;
+            var tercer = document.getElementById("tercerNOCompleCashEntrada").value;
+            var cuarto = document.getElementById("cuartoNocompleCashEntrada").value;
+
+            var primertxt = document.getElementById("IndemnizacionesSuplidosEntrada").value;
+            var segundtxt = document.getElementById("IndemnizacionesDeLaSegSocialEntrada").value;
+            var tercertxt = document.getElementById("IndemnizacionesDebidoTrasSuspDespEntrada").value;
+            var cuartotxt = document.getElementById("OtrasPercepcionesNoSalarialesEntrada").value;
+
+            if(primer === null || primertxt === ""){
+                document.getElementById("primerNOCompleCashEntrada").innerHTML = 0;
+                document.getElementById("IndemnizacionesSuplidosEntrada").innerHTML = "No hay";
+            }else{
+                //document.getElementById("primerNOCompleCashSalida").innerHTML = primer;
+                document.getElementById("IndemnizacionesSuplidosEntrada").innerHTML = primertxt;
+            }
+            
+            if(segundo === null || segundtxt === ""){
+                document.getElementById("segundoNOCompleCashEntrada").innerHTML = 0;
+                document.getElementById("IndemnizacionesDeLaSegSocialEntrada").innerHTML = "No hay";
+            }else{
+                //document.getElementById("segundoNOCompleCashSalida").innerHTML = segund;
+                document.getElementById("IndemnizacionesDeLaSegSocialEntrada").innerHTML = segundtxt;
+            }
+            if(tercer === null || tercertxt === ""){
+                document.getElementById("tercerNOCompleCashEntrada").innerHTML = 0;
+                document.getElementById("IndemnizacionesDebidoTrasSuspDespEntrada").innerHTML = "No hay";
+            }else{
+                //document.getElementById("tercerNOCompleCashSalida").innerHTML = tercer;
+                document.getElementById("IndemnizacionesDebidoTrasSuspDespEntrada").innerHTML = tercertxt;
+            }
+            if(cuarto === null || cuartotxt === ""){
+                document.getElementById("cuartoNocompleCashEntrada").innerHTML = 0;
+                document.getElementById("OtrasPercepcionesNoSalarialesEntrada").innerHTML = "No hay";
+            }else{
+                //document.getElementById("cuartoNOCompleCashSalida").innerHTML = cuarto;
+                document.getElementById("OtrasPercepcionesNoSalarialesEntrada").innerHTML = cuartotxt;
+            }
+
+            // Puede que hay que hacer un parsefloat a cada numero en vez de a la suma
+            complementosNoSalariales = parseFloat(primer) + parseFloat(segundo) + parseFloat(tercer) + parseFloat(cuarto);
+            document.getElementById("ComplementosNOSalarialesSalida").innerHTML = complementosSalariales;
+        }
+        
+        function calcularHorasExtras(){
+            tipoHorasExtraEmpresa = document.getElementById("HorasExtraordinariasDevengosTipoEntrada").value;
+            tipoHorasExtraTrabajador = document.getElementById("HorasExtraordinariasDevengosTipoEntrada").value;
+
+            if(document.getElementById("HorasExtraordinariasDevengosTipoEntrada").value === "FuerzaMayor"){
+                tipoHorasExtraEmpresa = parseFloat(document.getElementById("HorasExtraordinariasDevengosCashEntrada").value) * 0.1200;
+                tipoHorasExtraTrabajador = parseFloat(document.getElementById("HorasExtraordinariasDevengosCashEntrada").value) * 0.0200;
+                document.getElementById("HorasExtraordinariasDevengosTipoSalida").innerHTML = "Fuerza mayor";
+
+
+            }else if(document.getElementById("HorasExtraordinariasDevengosTipoEntrada").value === "Normal"){
+                tipoHorasExtraEmpresa = parseFloat(document.getElementById("HorasExtraordinariasDevengosCashEntrada").value) * 0.2360;
+                tipoHorasExTratrabajador = parseFloat(document.getElementById("HorasExtraordinariasDevengosCashEntrada").value) * 0.0470;
+                document.getElementById("HorasExtraordinariasDevengosTipoSalida").innerHTML = "Normal";
+            }else{
+                tipoHorasExtraEmpresa = "No hay";
+                tipoHorasExtraTrabajador = "No hay";
+                document.getElementById("HorasExtraordinariasDevengosTipoSalida").innerHTML = "No hay";
+            }
+
+            valorHorasExtra = document.getElementById("HorasExtraordinariasDevengosCashEntrada").value;
+
+            // HACER
+            document.getElementById("HorasExtraordinariasCalculadas").innerHTML = tipoHorasExtraTrabajador;
+            //document.getElementById("").innerHTML = tipoHorasExtraEmpresa;
+        }
+
+        function ImpuestoRentaPersonasFisicas(){
+            impuesto = salario/(parseFloat(document.getElementById("ImpuestoPersonasFisicasEntrada").value)*100) //No se que valor usar
+        }
+
+        function liquidoPercibir(){ -->

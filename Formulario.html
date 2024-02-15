@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Formulario Cool con Preguntas</title>
+        <link href="CSS/formulario1.0.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Honk&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap" rel="stylesheet">
+    
+    </head>
+    <body>
+        <audio id="reproductor" controls style="display: none;"></audio>
+            <button id="Musica" onclick="generarRANDOMyelegirCancion()"></button>
+                    
+            <button id="Parada" style="display: none;" onclick="Parar()"></button> 
+
+        <main>
+            <form id="miFormulario" onsubmit="return enviarDatosMostrarRepuestas();">
+                <section id="datos" class="datos" style="display: block;">
+                    <h1>Formulario</h1>
+    
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+            
+                    <label for="apellido">Apellido:</label>
+                    <input type="text" id="apellido" name="apellido" required>
+            
+                    <label for="email">Correo Electrónico:</label>
+                    <input type="email" id="email" name="email" >
+            
+                    
+                    <input id="Guardar" type="button" value="Guardar Datos">
+                </section>
+            
+                <section  id="preguntas" class="preguntas" style="display: none;">
+    
+                        <!-- <p class="progress-container">
+                            <div class="progress-bar" id="myBar">RacistoMetro</div>
+                         </p> -->
+    
+                        <p id="Metro">RacistoMetro</p>
+
+    
+                    <div id="pregunta1">
+                        <h2>¿Cúal es tu raza?</h2>
+                        <label for="Africa"><input id="Africa" type="radio" name="pregunta1" value="0"><a href="Video/Raza/negro.mp4">Africana</a></label>
+                        <label for="Peruana"><input type="radio" id="Peruana" name="pregunta1" value="0"><a href="Video/Raza/Peruano.mp4">Peruana</a></label>
+                        <label for="Gitana"><input type="radio" id="Gitana" name="pregunta1" value="0"><a href="Video/Raza/Gitano.mp4">Gitana</a></label>
+                        <label for="China"><input type="radio" id="China" name="pregunta1" value="0"><a href="Video/Raza/Chino.mp4">China</a></label>
+                        <label for="Española"><input type="radio" id="Española" name="pregunta1" value="1"><a href="Video/Raza/España.mp4">Española</a></label>
+                        <label for="Marroqui"><input type="radio" id="Marroqui" name="pregunta1" value="0"><a href="Video/Raza/Marroqui.mp4">Marroquí</a></label>
+                        <label for="Alemana" ><input type="radio" id="Alemana" name="pregunta1" value="3"><a href="Video/Raza/Hitler.mp4">ARIA Alemana</a></label>
+                    </div>
+
+                    <div id="pregunta1.1">
+                        <h2>¿Cúal es la raza que mas odias?</h2>
+                        <label for="Africa"><input id="Africa" type="radio" name="pregunta1" value="2"><a href="Video/Raza/negro.mp4">Africana</a></label>
+                        <label for="Peruana"><input type="radio" id="Peruana" name="pregunta1" value="1"><a href="Video/Raza/Peruano.mp4">Peruana</a></label>
+                        <label for="Gitana"><input type="radio" id="Gitana" name="pregunta1" value="1"><a href="Video/Raza/Gitano.mp4">Gitana</a></label>
+                        <label for="China"><input type="radio" id="China" name="pregunta1" value="1"><a href="Video/Raza/Chino.mp4">China</a></label>
+                        <label for="Española"><input type="radio" id="Española" name="pregunta1" value="1"><a href="Video/Raza/España.mp4">Española</a></label>
+                        <label for="Marroqui"><input type="radio" id="Marroqui" name="pregunta1" value="2"><a href="Video/Raza/Marroqui.mp4">Marroquí</a></label>
+                        <label for="Alemana" ><input type="radio" id="Alemana" name="pregunta1" value="1"><a href="Video/Raza/Hitler.mp4">ARIA Alemana</a></label>
+                    </div>
+                    <div id="pregunta2">
+                        <h2>¿Meme racista?</h2>
+                        <label for="MemeSi"><input id="MemeSi" type="radio" name="pregunta2" value="0">Si</label>
+                        <label for="MemeNo"><input id="MemeNo" type="radio" name="pregunta2" value="1">No</label>
+                        <button id="Meme" onclick="playRandomVideo()"></button>
+                    </div>
+    
+                    <div id="pregunta3">
+                        <h2>¿Tienes un amigo de una etnia no española?</h2>
+                        <label for="SiTengo"><input id="SiTengo" type="radio" name="pregunta3" value="0">Si</label>
+                        <label for="NoTengo"><input id="NoTengo" type="radio" name="pregunta3" value="1">No</label>
+                    </div>
+    
+                    <div id="pregunta4">
+                        <h2>¿En tu vida cotidiana haces chistes racistas?</h2>
+                        <label for="SiHago"><input id="SiHago" type="radio" name="Hacer" value="1">Si</label>
+                        <label for="NoHago"><input id="NoHago" type="radio" name="Hacer" value="0">No</label>
+                    </div>
+    
+                    <div id="pregunta5">
+                        <h2>¿Te sientes incómodo al interactuar con personas de diferentes razas?</h2>
+                        <label for="SiMucha"><input id="SiMucha" type="radio" name="Incomodidad" value="1">Si</label>
+                        <label for="NoNada"><input id="NoNada" type="radio" name="Incomodidad" value="0">No</label>
+                    </div>
+    
+                    <div id="pregunta6">
+                        <h2>¿Qué haces si ves un acto discriminatorio delante tuyo?</h2>
+                        <label for="6.1"><input type="checkbox" id="6.1" name="Ver" value="2">Darle una patada</label>
+                        <label for="6.3"><input type="checkbox" id="6.3" name="Ver" value="0">Ayudarle</label>
+                        <label for="6.4"><input type="checkbox" id="6.4" name="Ver" value="1">Rematarlo</label>
+                        <label for="6.2"><input type="checkbox" id="6.2" name="Ver" value="1">Nada</label>
+                    </div>
+    
+                    <div id="pregunta7">
+                        <h2>¿Has vivido una situación racista?</h2>
+                        <label for="SiHistoria"><input id="SiHistoria" name="breveHistoria" type="radio">Si</label>
+    
+                        <!-- El textarea solo se debe mostrar si el boton con id=SiHistoria es pulsado -->
+                        <textarea id="Textarea" name="breveHistoria" rows="4" cols="50"></textarea>
+                        <label for="NoHistoria"><input id="NoHistoria" name="breveHistoria" type="radio">No</label>               
+    
+                    </div>
+    
+                    <div id="pregunta8">
+                        <h2>¿Qué le dirías a una persona racista?</h2>
+                        <label for="8.2"><input id="8.2" name="8" type="radio">No seas malo</label>
+                        <label for="8.3"><input id="8.3" name="8" type="radio">Ni hola</label>
+                        <label for="8.1"><input id="8.1" name="8" type="radio">Racista? Como yo</label>
+    
+                    </div>
+    
+    
+    
+                    <!-- <p id="Metro">
+                        <label for="pregunta3">RacistoMetro: </label>
+                        <input type="range" id="pregunta3" name="Racismo" min="0" max="10" step="1" value="0">
+                    </p> -->
+                    <input id="enviar" type="submit" value="Enviar">
+                </section>
+            </form>
+        </main>
+        
+        <script>
+
+            // function mostrarTextarea() {
+            //     document.getElementById("Textarea").style.display = "block";
+            // }
+
+            // function ocultarTextarea() {
+            //     document.getElementById("Textarea").style.display = "none";
+            // }
+
+            function updateProgressBar() {
+                const scrollTop = document.documentElement.scrollTop;
+                const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const scrollPercentage = (scrollTop / scrollHeight) * 100;
+                document.getElementById("mybar").style.width = scrollPercentage + "%";
+            }
+
+            //Metodo para reproducir musica aleatoria derscargada en la carpeta audio con nombre (Audio + numeroAleatorio)
+            function generarRANDOMyelegirCancion() {
+                var reproductor = document.getElementById("reproductor");
+                var botonMusica = document.getElementById("Musica");
+                var botonParada = document.getElementById("Parada");
+
+                var numeroAleatorio = Math.floor(Math.random() * 8) + 1; 
+                reproductor.src = "audio/Audio" + numeroAleatorio + ".mp3";
+                reproductor.load();
+                reproductor.play();
+
+
+                botonMusica.style.display = 'none';
+                botonParada.style.display = 'inline-block';
+            }
+
+            //Metodo para parar la musica 
+            function Parar() {
+                var reproductor = document.getElementById("reproductor");
+                var botonMusica = document.getElementById("Musica");
+                var botonParada = document.getElementById("Parada");
+
+                reproductor.pause();
+                reproductor.currentTime = 0;
+
+                botonMusica.style.display = 'inline-block';
+                botonParada.style.display = 'none';
+            }
+
+            //Metodo para reproducir un video random de los descargados
+            //Intentar poner videos de youtube para que la carpeta no pese tanto
+            function playRandomVideo() {
+                var videos = [
+                    'Video/Random/Etrec.mp4',
+                    'Video/Random/Coco.mp4',
+                    'Video/Random/Pitufo.mp4',
+                    'Video/Random/fortinait.mp4',
+                    'Video/Random/Pera.mp4',
+                    'Video/Random/Carl.mp4',
+                    'Video/Random/Cucaracha.mp4',
+                    'Video/Random/MeLaMascan.mp4',
+                    'Video/Random/John Cena.mp4',
+                    'Video/Random/MonoAK.mp4',
+                    'Video/Random/AfricanGuy.mp4',
+                    'Video/Random/Dandy.mp4',
+                    'Video/Random/SADL.mp4',
+                    'Video/Random/orina.mp4',
+                    'Video/Random/triangulo.mp4',
+                    'Video/Random/turtle.mp4',
+                    'Video/Random/Eminem.mp4'
+                    // Agrega más videos según sea necesario
+                ];
+
+                var numeroAleatorio = Math.floor(Math.random() * videos.length);
+                var videoUrl = videos[numeroAleatorio];
+
+                window.location.href = videoUrl;
+            }
+
+            // //Metodo para hacer que el div de los datos personales desaparezca
+            function Datos() {
+                var section = document.getElementById("datos");
+                section.style.display = (section.style.display === "block") ? "none" : "block";
+
+            }
+            
+            //Metodo para hacer que aparezcan las preguntas
+            function mostrarPreguntas() {
+                var section = document.getElementById("preguntas");
+                var body = document.body;
+
+                section.style.display = (section.style.display === "none") ? "block" : "none";
+                
+                // Cambia el fondo del body a una imagen
+                body.style.backgroundImage = 'url("../img/Lago.jpg")';
+                body.style.backgroundSize = 'cover';
+
+            }
+
+            //Metodo para hacer que el div de los datos personales desaparezca y aparezcan las preguntas
+            //Fallos se puede enviar vacio
+            //Pasa dos veces
+            function enviarDatosMostrarRepuestas(){
+                var sectionDatos = document.getElementById("preguntas");
+                var sectionPreguntas = document.getElementById("datos");
+                var body = document.body;
+
+                sectionDatos.style.display = (sectionDatos.style.display === "block") ? "none" : "block";
+                sectionPreguntas.style.display =(sectionPreguntas.style.display === "none") ? "block" : "none";
+
+                body.style.backgroundImage = 'url("../img/Lago.jpg")';
+                body.style.backgroundSize = 'cover';
+
+            }
+
+            // Cuando el boton enviar de los datos personales se clickado se llamaran los metodos
+            document.getElementById("Guardar").addEventListener("click", function() {
+                // Datos();
+                // mostrarPreguntas();
+                var nombre = document.getElementById("nombre");
+                var apellido = document.getElementById("apellido");
+
+                if(nombre.value != "" && apellido.value != ""){
+                    enviarDatosMostrarRepuestas();
+                }
+            });
+
+        </script>
+    </body>
+    
+    <!-- Poner el footer al final -->
+    <!-- <footer>
+        <ul>
+            <li>m</li>
+            <li>m</li>
+            <li>em</li>
+            <li>e</li>
+            <li>e</li>
+            <li>rt</li>
+        </ul>
+    </footer> -->
+</html>

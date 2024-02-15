@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistemas Informáticos</title>
+	<style>
+        thead th{
+            padding: 35px;
+            font-size: 100px;
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            color:rgb(104, 5, 104);
+            background-color: rgb(76, 253, 0);
+
+        }
+        tbody  th{
+            background-color: black;
+            color:yellow;
+            text-shadow: red 3px 3px 4px;
+        }
+        td{
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        table {
+    border-collapse: collapse; /* Combina los bordes de las celdas en uno solo */
+    width: 100%; /* O el ancho que desees */
+}
+
+    </style>
+</head>
+<body>
+    <table border="1">
+        <thead><tr><th colspan="3">COMANDOS</th></tr></thead>
+        <tbody>
+            <tr>
+                <th>NOMBRE</th>
+                <th>EXPLICACIÓN</th>
+                <th>EJEMPLOS / ATRIBUTOS / SINTAXIS</th>
+            </tr>
+            <tr>
+                <th>DIR</th>
+                <td>Muestra la lista de subdirectorios y archivos de un directorio.</td>
+                <td>
+                    <ul>
+                        <li>DIR /P: vuelca en pantalla solo los directorios/archivos que caben en la misma, esperando a que el usuario pulse una tecla para continuar. (lo muestra por páginas)</li>
+                        <li>DIR /W: visualiza únicamente el nombre del archivo o directorio, sin datos adicionales. Los directorios se muestran encerrados entre corchetes “[ ]”. (sólo muestra el nombre)</li>
+                        <li>DIR nombre_del_archivo.extensión para ver si un archivo concreto se encuentra en el directorio. Por ejemplo: dir setup.exe.</li>
+                        <li>DIR /L: lista con minúsculas.</li>
+                        <li>DIR /S: lista el contenido de los subdirectorios.</li>
+                        <li>DIR /B: lista solo el nombre de los archivos y directorios</li>
+                        <li>DIR /O: ordena los ficheros con respecto a un orden. Si entre los dos puntos y la letra de la ordenación ponemos un guión “-” el orden se invierte.
+                            <ul>
+                                <li>N: por nombre en orden alfabético.</li>
+                                <li>E: por extensión en orden alfabético.</li>
+                                <li>S: por tamaño, de menor a mayor.</li>
+                                <li>D: por fecha y hora. Del más antiguo al más moderno.</li>
+                                <li>G: primero aparecen los directorios</li>
+                            </ul>
+                        </li>
+                        <li>DIR /A: muestra archivos con un atributo específico.</li>
+                        <li>"help dir" para más opciones</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th>CHDIR</th>
+                <td>Muestra el nombre del directorio actual o cambia de directorio</td>
+            </tr>
+            <tr>
+                <th>MKDIR</th>
+                <td>Crea un directorio</td>
+            </tr>
+            <tr>
+                <th>RMDIR</th>
+                <td>Quita (elimina) un directorio. Si el directorio no está vacío tendremos que borrar
+                    previamente los archivos y subdirectorios que contiene o
+                    invocarlo con la opción /S.</td>
+            </tr>
+            <tr>
+                <th>TREE</th>
+                <td>Muestra de forma gráfica la estructura de carpetas de una unidad o ruta.</td>
+                <td>Sintaxis: TREE [unidad:][ruta][opciones]</td>
+            </tr>
+            <tr>
+                <th>COPY</th>
+                <td>Copia uno o más archivos en otra ubicación.</td>
+                <td>Sintaxis: copy[unidad:][ruta]copia</td>
+            </tr>
+            <tr>
+                <th>COPY CON</th>
+                <td>El ordenador se queda esperando a que introduzcamos texto. Escribimos lo que queramos.
+                    Para finalizar, pulsamos F6 o CONTROL + Z (que es la marca fin de fichero) 
+                    y a continuación pulsamos Intro.</td>
+                <td>Sintaxis: COPY CON nombre_archivo y pulsamos Intro.</td>
+            </tr>
+            <tr>
+                <th>MOVE</th>
+                <td>Mueve UNO o MÁS archivos y cambia el nombre a archivos y directorios.</td>
+                <td>
+                    <ul>
+                        <li>Sintaxis: move [unidad:][ruta]origen ... [unidad:][ruta]destino.</li>
+                        <li>Por ejemplo: move gladiator peliculas\accion</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th>REN o RENAME</th>
+                <td>Cambia el nombre de uno o más archivos.</td>
+                <td>
+                    <ul>
+                        <li>Sintaxis: REN [unidad:][camino] NombreArchivo NombreNuevo</li>
+                        <li>Ejemplo:
+                            <ul>
+                                <li>ren mago.txt magia.txt</li>
+                                <li>  ren dos\cd\adios hola</li>
+                            </ul>
+                        </li>
+                    </ul>
+            </tr>
+            <tr>
+                <th>“DEL” y “ERASE”</th>
+                <td>Elimina uno o más archivos. Si en vez del nombre de un fichero especificamos el nombre de un directorio, lo que hace es borrar los ficheros que contiene.</td>
+                <td>
+                    <ul>
+                        <li>Sintaxis:
+                            <ul>
+                                <li>DEL nombreArchivo.extension</li>
+                                <li>ERASE nombreArchivo.extension</li>
+                            </ul>
+                        </li>
+                        <li>Ejemplos
+                            <ul>
+                                <li>DEL *.EXE: Borra todos los archivos de extensión .EXE en el directorio actual.</li>
+                                <li>DEL *.*: Borra todos los archivos del directorio actual (con o sin extensión). El sistema nos preguntará si estamos seguros (es equivalente a escribir DEL .).</li>
+                                <li>DEL *.: Borra todos los archivos sin extensión.</li>
+                                <li>ERASE hola.txt: Borra los ficheros “hola.txt” y “foto.jpg”.foto.jpg</li>
+                                <li>ERASE /P hola.txt: Borra el fichero pidiendo confirmación. </li>
+                                <li>DEL /A: R *.*: Borra todos los ficheros de sólo lectura en el directorio actual</li>
+                                <li>DEL ventas /S: Borra todos los ficheros en el directorio “ventas” y subdirectorios</li> 
+                            </ul>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th>TYPE</th>
+                <td>Muestra el contenido de uno o más archivos de texto. Para más de un fichero escribiendo los nombres separados por un espacioen blanco o usando comodines. </td>
+                <td>Sintaxis: TYPE [unidad:][ruta]archivo</td>
+            </tr>
+            <tr>
+                <th>MORE</th>
+                <td>Muestra la información pantalla a pantalla. More es una mejora de "TYPE" ya que hace pausas si el contenido mostrado es muy largo</td>
+                <td>Sintaxis: MORE [opciones][unidad:][ruta] archivo</td>
+            </tr>
+            <tr>
+                <th>SORT</th>
+                <td>recibe como entrada un conjunto de caracteres organizados en filas y devuelve los mismos caracteres ordenando cada fila alfabéticamente.</td>
+                <td>
+                    <p>Sintaxis: SORT [opciones][unidad:][ruta] archivo</p>
+                    <ul>
+                        <li>alfabéticamente: sort lista.txt</li>
+                        <li>Orden inverso: sort </li>
+                        <li>3º Carácter: sort/+3 lista.txt</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th>REDIRECCIONES</th>
+                <td>Para variar la entrada de una orden, la salida o ambas se utilizan los operadores de redireccionamiento.</td>
+                <td>
+                    <ol>
+                        <li>Salida
+                            <ul>
+                                <li><strong>Ejemplo:</strong> type cosas.txt > mas.txt.</li>
+                                <li> <strong>Explicación:</strong> Type muestra el contenido de "cosas.txt" y la salida es en "mas.txt"</li>
+                            </ul>  
+                        </li>
+                        <li>Entrada
+                            <ul>
+                                <li>El operador de entrada (“&lt;“) toma los datos de entrada desde el fichero o dispositivo especificado.</li>
+                                <li>En el siguiente ejemplo: MORE &lt; "fich1.txt". MORE hace que se muestra de página a página. El contenido del fichero “fich1.txt”. Se muestra por pantalla</li>
+                            </ul>
+                        </li>
+                        <li>Adicción
+                            <ul><li>El operador de adicción a un fichero (“>>”) dirige la ejecución de un comando a un fichero. Si el fichero existe añade el resultado de la ejecución al final del fichero sin sobrescribir lo anterior. Si no existe se crea. </li></ul>
+                        </li>
+                        <li>Tubería 
+                            <ul>
+                                <li>En el siguiente ejemplo: DIR | SORT /R. Redirige la salida del comando “dir” al comando “sort”</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </td>
+            </tr>
+            <tr>
+                <th>FIND</th>
+                <td>Busca una cadena de texto en uno o más archivos.</td>
+                <td>
+                    <ul>
+                        <li>Sintaxis: FIND [opciones] "cadena" [[unidad:][nombre de ruta de acceso]...]</li>
+                        <li>Ejemplo: FIND “muestra en” ayuda.txt</li>
+                        <li> Busca el texto "muestra en" en el archivo “ayuda.txt”</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th>FINDSTR</th>
+                <td>Busca cadenas en los archivos. Dispone de una amplia colección de comodines que permiten construir un gran número de expresiones regulares para afinar la búsqueda.</td>
+                <td>
+                    <ul>
+                        <li>Sintaxis: FINDSTR [opciones] "cadenas" [[unidad:][ruta de acceso]...]
+                            <ul>
+                                <li>/b: Hace coincidir los modelos si están al principio de la línea.</li>
+                                <li>/c:cadena: Usa una cadena especificada como una búsqueda de cadena literal.</li>
+                                <li>/i: Especifica que la búsqueda no distingue mayúsculas de minúsculas.</li>
+                                <li>/s: Busca archivos que coinciden en el directorio actual y en todos los subdirectorios.</li>
+                                <li>/f:archivo: Lee la lista de archivos desde el archivo especificado (/ significa consola)</li>
+                                <li>/g:archivo: Toma la búsqueda de archivos desde el archivo especificado(/ significa consola).</li>
+                                <li>/m: Solo imprime el nombre de archivo si el archivo contiene una correspondencia</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th>FC</th>
+                <td>Compara dos archivos o conjuntos de archivos y muestra las diferencias entre ellos. (La comparación puede ser binaria o en modo texto y, en modo texto, puede usarse el código ASCII o el UNICODE.)</td>
+                <td>
+                    <ul>
+                        <li>Sintaxis: FC [opciones] [unidad1:] [camino1] NombreArchivo1 [unidad2:] [camino2] NombreArchivo2
+                            <ul>
+                                <li>/c: Omite mayúsculas y minúsculas.</li>
+                                <li>/n: Muestra los números de línea en una comparación ASCII.</li>
+                                <li>/b: Ejecuta una comparación binaria.</li>
+                            </ul>
+                        </li>
+                        <li>Ejemplos
+                            <ul>
+                                <li>FC /c fichero1 fichero2: Ignorar en la comparación mayúsculas y minúsculas. (/c)</li>
+                                <li>FC /n fichero1 fichero2: Mostrar el número de línea durante la comparación (/n)</li>
+                                <li>FC /b c fichero1 fichero2: Comparación binaria de dos archivos (/b)</li>
+                                <li>FC /n *.txt archivo: Comparar todos los archivos de extensión txt del directorio con oro archivo. (/n)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th>ATTRIB</th>
+                <td>Muestra o cambia los atributos de un archivo.</td>
+                <td>
+                    <ul>
+                        <li>Sintaxis: ATTRIB [opciones] [unidad :] [ruta] [nombrearchivo]</li>
+                        <li>Ejemplos de atributos son:
+                            <ul>
+                                <li>R: atributo de archivo de sólo lectura.</li>
+                                <li>S: atributo de archivo de sistema.</li>
+                                <li>H: atributo de archivo oculto.</li>
+                                <li>A: atributo de archivo de almacenamiento.</li>
+                            </ul>
+                        </li>
+                        <li>Ejemplos de “ATTRIB”
+                            <ul>
+                                <li>ATTRIB –R: Quitar el atributo de sólo lectura al fichero “protegido.txt”. </li>
+                                <li>ATTRIB otros: Consultar los atributos del fichero “otros”.</li>
+                                <li>ATTRIB +r +h otros: Ocultar el fichero “otros” y hacerlo de solo lectura</li>
+                                <li>ATTRIB /s +R *.txt: Establecer el atributo de “solo lectura” en el directorio actual y sus subdirectorios para todos los ficheros de extensión “txt”.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th>PROMPT</th>
+                <td>Cambia el símbolo del sistema de cmd.exe. Cuando abrimos una ventana del intérprete de comandos, el texto que se muestra antes del cursor parpadeando recibe el nombre de prompt</td>
+                <td>
+                    <ul>
+                        <li>PROMPT $d: Mostrar como prompt la fecha actual.</li>
+                        <li>PROMPT $t: Mostrar como prompt la hora actual.</li>
+                        <li>PROMPT $t $v: Mostrar como prompt la hora actual y la versión de Windows.</li>
+                        <li>PROMTP $: Hacer que sólo se muestre el cursor parpadeando.</li>
+                    </ul>
+                </td>
+                
+            </tr>
+			<tr>
+                <th>COLOR</th>
+                <td>SintaxisCOLOR: [[&lt;B&gt;]&lt;F&gt;]
+                    <ul>
+                        <li>&lt;B&gt; Especifica el color de fondo de la consola.(Background)</li>
+                        <li>&lt;F&gt; Especifica el color de primer plano de la consola. (Foreground).</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>0: Negro</li>
+                        <li>1: Azul</li>
+                        <li>2: Verde</li>
+                        <li>3: Aguamarina</li>
+                        <li>4: Rojo</li>
+                        <li>5: Púrpura</li>
+                        <li>6: Amarillo</li>
+                        <li>7: Blanco</li>
+                        <li>8: Gris</li>
+                        <li>9: Azul claro</li>
+                        <li>A: Verde claro</li>
+                        <li>B: Aguamarina claro</li>
+                        <li>C: Rojo claro</li>
+                        <li>D: Púrpura claro</li>
+                        <li>E: Amarillo claro</li>
+                        <li>F: Blanco brillante</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistemas Informáticos</title>
+    <style>
+        thead th {
+            padding: 35px;
+            font-size: 100px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            color: rgb(104, 5, 104);
+            background-color: rgb(76, 253, 0);
+        }
+
+        .separadores{
+            background-color: yellow;
+            padding: 20px;
+        }
+
+      
+    </style>
+</head>
+
+<body>
+    <main>
+         <!-- <div>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th colspan="2">CONSULTAS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th colspan="2">EJEMPLOS / ATRIBUTOS / SINTAXIS</th>
+                    </tr>
+                    <tr>
+                        <th rowspan="3">Consultas de inserción</th>
+                        <td>
+                            <strong>Sintaxis: </strong> Insert into &lt;nombre de la tabla&gt; (&lt;lista de campos
+                            separados por comas&gt;) values (&lt;datos a insertar&gt;) <br>
+                            <strong>Ejemplo: </strong> Insert into pacientes (DNI, nombre, edad, fecha_nacimiento)
+                            values (‘12131415R’, ‘Jairo Peña’, 44,’1980-01-10’);
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Consideraciones añadidas.</strong><em>Puede ocurrir que no queramos rellenar todos
+                                los campos de la tabla en una fila determinada. </em> <br>
+                            <strong>Ejemplo: </strong> Insert into pacientes (DNI, nombre) values (‘12131415R’, ‘Román
+                            Vargas’);
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong> Consideraciones añadidas.</strong><em> Puede ocurrir que queramos insertar varias
+                                líneas en una tabla.</em> <br>
+                            <strong>Ejemplo: </strong>
+                            Insert into pacientes (DNI, nombre, edad, fecha_nacimiento)
+                            values (‘12131415R’, ‘Jairo Peña’, 44,’1980-01-10’),
+                            (‘23242526T’,’Ramiro Sanz’,33,’1990-10-12’);
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Consultas de Actualización</th>
+                        <td>
+                            <strong>Sintaxis: </strong>UPDATE &lt;nombre de la tabla&gt;
+                            SET &lt;valor a modificar&gt;
+                            WHERE &lt;condición de campo para la modificación&gt; <br>
+                            <strong>Ejemplo: </strong>UPDATE pacientes
+                            SET nombre=‘Jaime Peña’
+                            WHERE DNI=‘12131415R’
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Consultas de Eliminación</th>
+                        <td>
+                            <strong>Sintaxis: </strong> &lt;/strongDELETE FROM &lt;nombre de la tabla&gt; WHERE
+                            &lt;condición/condiciones para el borrado&gt;
+                            <br>
+                            <strong>Ejemplo: </strong>DELETE FROM pacientes WHERE nombre=‘Jaime Peña’ or nombre=‘Román
+                            Vargas’
+                        </td>
+                    </tr>
+            </table>
+            <table border="1">
+                <tbody>
+                    <tr>
+                        <th>Cláusulas</th>
+                        <td>
+                            <ul>
+                                <li><strong>Select: </strong> utiliza para recuperar datos de una o más tablas.</li>
+                                <li><strong>From: </strong>Especifica la tabla o tablas desde las cuales se
+                                    seleccionarán los datos.</li>
+                                <li><strong>Where</strong>Se utiliza para filtrar los resultados basados en una
+                                    condición.</li>
+                                <li><strong>Order by</strong>Ordena los resultados en función de una o más columnas, ya
+                                    sea de forma ascendente (ASC) o descendente (DESC).</li>
+                                <li><strong>Group by: </strong>Agrupa los resultados basándose en el valor de una o más
+                                    columnas.</li>
+                                <li><strong>Having: </strong>Similar a la cláusula WHERE, pero se aplica después del
+                                    GROUP BY para filtrar los resultados de las funciones de agregación.</li>
+                                <li><strong>Join: </strong>Combina filas de dos o más tablas basándose en una condición
+                                    relacionada.</li>
+                                <li><strong>Update: </strong>Modifica datos en una tabla.</li>
+                                <li><strong>Delete</strong>Elimina filas de una tabla.</li>
+                                <li><strong>Insert into: </strong>Inserta nuevos registros en una tabla.</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table border="1">
+                <thead>
+
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Explicacion</th>
+                        <th>Sintaxis</th>
+                    </tr>
+                    <tr>
+                        <th>Insert</th>
+                        <td>
+                            <ul>
+                                <li>Poner todos los campos solo es necesario si vamos a rellenar todas.</li>
+                                <li>Los campos no numéricos o booleanos van delimitados por apostrofes: '.</li>
+                                <li>También resulta interesante ver que el código postal lo hemos guardado como un campo
+                                    no numérico</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <strong>Sintaxis: </strong>
+                            Insert Into nombre_tabla (nombre_campo1, nombre_campo2,...)
+                            Values (valor_campo1, valor_campo2...) <br>
+                            <strong>Ejemplo: </strong><br>Insert Into clientes (nombre, apellidos, direccion, poblacion,
+                            codigopostal, email, pedidos) Values ('Ovidio', 'Peláez', 'Percebe
+                            n°13', 'Alava', '01004', 'ovidio@colegio.com', 33)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Delete</th>
+                        <td>En este caso debemos especificar cual o cuales son los registros que queremos borrar. Es por
+                            ello necesario establecer una selección que se llevara a cabo mediante la
+                            cláusula Where</td>
+                        <td>Si queremos por ejemplo, borrar todos los registros de los clientes que se llamen
+                            Perico lo haríamos del siguiente modo: <br>
+                            Delete From clientes Where nombre='Perico'</td>
+                    </tr>
+                    <tr>
+                        <th>Update</th>
+                        <td>Necesitamos especificar por medio de Where cuáles son los registros en los que queremos
+                            hacer
+                            efectivas nuestras modificaciones. Además, obviamente, tendremos que especificar cuáles son
+                            los nuevos valores de los campos que deseamos actualizar.
+                        </td>
+                        <td><strong>sintaxis: </strong>
+                            Update nombre_tabla Set nombre_campo1 = valor_campo1, nombre_campo2 =
+                            valor_campo2,... Where condiciones_de_selección <br>
+                            <strong>Ejemplo: </strong> <br>
+                            Update clientes Set nombre='Ana' Where nombre='Marta'
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Consultas Básicas de selección</th>
+                        <td><em>Instrucción Select</em> <br>
+                            -Los campos que queremos seleccionar <br>
+                            -La tabla en la que hacemos la selección
+                            Se usan filtros: *, Where, Order
+                        </td>
+                        <td>
+                            Select * From clientes <br>
+                            Select * From clientes Where poblacion Like 'Madrid' <br>
+                            Select * From clientes Where poblacion Like 'Madrid' Order By nombre <br>
+                            Select * From clientes Where poblacion Like 'Madrid' Order By nombre, apellido <br>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th colspan="2">Lista de operadores</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>Operadores matemáticos</th>
+                        <td>
+                            <ul>
+                                <li>&gt; Mayor que</li>
+                                <li>&lt; Menor que</li>
+                                <li>&gt;= Mayor o igual que</li>
+                                <li>&lt;= Menor o igual que</li>
+                                <li>&lt;&gt; Distinto</li>
+                                <li>= Igual</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Operadores lógicos</th>
+                        <td>
+                            <ul>
+                                <li>And</li>
+                                <li>Or</li>
+                                <li>Not</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Mas operadores</th>
+                        <td>
+                            <ul>
+                                <li>Like: Selecciona los registros cuyo valor de campo se asemeje, no teniendo en cuenta
+                                    mayúsculas y minúsculas.</li>
+                                <li>In y Not In: Da un conjunto de valores para un campo para los cuales la condición de
+                                    selección es (o no) valida </li>
+                                <li>Is Null y Is Not Null: Selecciona aquellos registros donde el campo especificado
+                                    esta (o no) vacío</li>
+                                <li>Between...And: la consulta devolvería los registros que contengan en "campo" un
+                                    valor incluido en el intervalo</li>
+                                <li>Distinct: Selecciona los registros indicados en la cláusula SELECT posean un
+                                    contenido diferente.</li>
+                                <li>Desc: Clasifica los registros por orden inverso</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Comodines</th>
+                        <td>
+                            <ul>
+                                <li>*: Sustituye a todos los campos</li>
+                                <li>%: Sustituye a cualquier cosa o nada dentro de una cadena</li>
+                                <li>_: Sustituye un solo carácter dentro de una cadena</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Sumarias y agrupadas</th>
+                        <td>
+                            Función: <br>
+                            <strong>Sum(campo):</strong> Calcula la suma de los registros del campo especificado<br>
+                            <strong>Avg(Campo):</strong> Calcula la media de los registros del campo especificado<br>
+                            <strong>Count(*):</strong> Nos proporciona el valor del numero de registros que han sido
+                            seleccionados <br>
+                            <strong>Max(Campo)</strong> Nos indica cual es el valor máximo del campo <br>
+                            <strong>Min(Campo):</strong> Nos indica cual es el valor mínimo del campo <br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Multitabla</th>
+                        <td>Queremos ver el título del libro correspondiente a cada uno de los pedidos
+                            realizados: <br>
+                            <strong>Select</strong> pedidos.id_pedido, articulos.titulo <br> <strong>From</strong>
+                            pedidos, articulos <br> <strong>Where</strong>
+                            pedidos.id_articulo=articulos.id_articulo
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Group by</th>
+                        <td>Una cláusula interesante en el uso de funciones es Group By. Esta cláusula nos permite
+                            agrupar registros a los cuales vamos a aplicar una función.</td>
+                    </tr>
+                    <tr>
+                        <th>Having</th>
+                        <td>Las funciones sumarias, resultan de gran utilidad en las consultas sql pero presentan una
+                            dificultad añadida que no es otra que, el hecho de que no se pueden utilizar para establecer
+                            una condición en la cláusula where.</td>
+                    </tr>
+                    <tr>
+                        <th>Campos calculados</th>
+                        <td>En determinadas ocasiones nos puede interesar incluir una columna con una
+                            fórmula, por ejemplo, supongamos que tenemos una tabla de empleados y
+                            deseamos recuperar las tarifas semanales de los electricistas (tarifas por hora
+                            por las 40 horas de la semana), podríamos realizar la siguiente consulta: <br>
+                            <strong>SELECT </strong>Empleados.Nombre, (Empleados.TarifaHora * 40) as tarifa_semanal <br>
+                            <strong>FROM </strong>Empleados <br>
+                            <strong>WHERE </strong>Empleados.Cargo = 'Electricista'
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div> -->
+        <div>
+            <table border="1" style="width: 100%;">
+                <thead>
+                    <tr>
+                        <th colspan="2">SQL TEORÍA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="separadores" colspan="2">MODIFICADORES PARTE: 1</th>
+                    </tr>
+                    <tr>
+                        <th><a href="https://youtu.be/OuJerKzV5T0?t=6089">DISTINCT</a></th>
+                        <td>
+                            <u>-- Obtiene todos los datos distintos entre sí de la tabla "users"</u><br>
+                            <strong>SELECT DISTINCT * FROM users;</strong><br>
+                            <u>-- Filtra todos los nombres de la tabla "users" con edad igual a 15</u><br>
+                            <strong>SELECT DISTINCT age FROM users;</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><a href="https://youtu.be/OuJerKzV5T0?t=6384">WHERE</a></th>
+                        <td>
+                            <u>-- Filtra todos los datos de la tabla "users" con edad igual a 15</u><br>
+                            <strong>SELECT * FROM users WHERE age = 15;</strong><br>
+                            <u>-- Obtiene todos los valores distintos referentes al atributo edad de la tabla
+                                "users"</u><br>
+                            <strong>SELECT name FROM users WHERE age = 15;</strong><br>
+                            <u>-- Filtra todos los nombres distintos de la tabla "users" con edad igual a 15</u><br>
+                            <strong>SELECT DISTINCT name FROM users WHERE age = 15;</strong><br>
+                            <u>-- Filtra todas las edades distintas de la tabla "users" con edad igual a 15</u><br>
+                            <strong>SELECT DISTINCT age FROM users WHERE age = 15;</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><a href="https://youtu.be/OuJerKzV5T0?t=6592">ORDER BY</a></th>
+                        <td>
+                            <u>-- Ordena todos los datos de la tabla "users" por edad (ascendente por defecto)</u><br>
+                            <strong>SELECT * FROM users ORDER BY age;</strong><br>
+                            <u>-- Ordena todos los datos de la tabla "users" por edad de manera ascendente</u><br>
+                            <strong>SELECT * FROM users ORDER BY age ASC;</strong><br>
+                            <u>-- Ordena todos los datos de la tabla "users" por edad de manera descendente</u><br>
+                            <strong>SELECT * FROM users ORDER BY age DESC;</strong><br>
+                            <u>-- Obtiene todos los datos de la tabla "users" con email igual a sara@gmail.com y los
+                                ordena
+                                por edad de manera descendente</u><br>
+                            <strong>SELECT * FROM users WHERE email='sara@gmail.com' ORDER BY age DESC;</strong><br>
+                            <u>-- Obtiene todos los nombres de la tabla "users" con email igual a sara@gmail.com y los
+                                ordena por edad de manera descendente</u><br>
+                            <strong>SELECT name FROM users WHERE email='sara@gmail.com' ORDER BY age DESC;</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><a href="https://youtu.be/OuJerKzV5T0?t=6894">LIKE</a></th>
+                        <td>
+                            <u>-- Obtiene todos datos de la tabla "users" que contienen un email con el texto
+                                "gmail.com"
+                                en su parte final</u><br>
+                            <strong>SELECT * FROM users WHERE email LIKE '%gmail.com';</strong><br>
+                            <u>-- Obtiene todos datos de la tabla "users" que contienen un email con el texto "sara" en
+                                su
+                                parte inicial</u><br>
+                            <strong>SELECT * FROM users WHERE email LIKE 'sara%';</strong><br>
+                            <u>-- Obtiene todos datos de la tabla "users" que contienen un email una arroba</u><br>
+                            <strong>SELECT * FROM users WHERE email LIKE '%@%';</strong><br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><a href="https://youtu.be/OuJerKzV5T0?t=7194">AND, OR, NOT</a></th>
+                        <td>
+                            <u>-- Obtiene todos datos de la tabla "users" con email distinto a sara@gmail.com</u><br>
+                            <strong>SELECT * FROM users WHERE NOT email = 'sara@gmail.com';</strong><br>
+                            <u>-- Obtiene todos datos de la tabla "users" con email distinto a sara@gmail.com y edad
+                                igual
+                                a 15</u><br>
+                            <strong>SELECT * FROM users WHERE NOT email = 'sara@gmail.com' AND age = 15;</strong><br>
+                            <u>-- Obtiene todos datos de la tabla "users" con email distinto a sara@gmail.com o edad
+                                igual
+                                a 15</u><br>
+                            <strong>SELECT * FROM users WHERE NOT email = 'sara@gmail.com' OR age = 15;</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><a href="https://youtu.be/OuJerKzV5T0?t=7395">LIMIT</a></th>
+                        <td>
+                            <u>-- Obtiene las 3 primeras filas de la tabla "users"</u><br>
+                            <strong>SELECT * FROM users LIMIT 3;</strong><br>
+                            <u>-- Obtiene las 32 primeras filas de la tabla "users" con email distinto a sara@gmail.com
+                                o
+                                edad igual a 15</u><br>
+                            <strong>SELECT * FROM users WHERE NOT email = 'sara@gmail.com' OR age = 15 LIMIT 2;</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="separadores" colspan="3">MODIFICADORES PARTE: 2</th>
+                    </tr>
+                    <tr>
+                        <td><a href="">COMMENTS</a></td>
+                        <td>
+                            -- Comentario en una lína <br>
+                            /*
+                            Este
+                            es
+                            un
+                            comentario
+                            en
+                            varias
+                            líneas
+                            */
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><a href="https://youtu.be/OuJerKzV5T0?t=7615">NULL</a></th>
+                        <td>
+                            <u>-- Obtiene todos datos de la tabla "users" de la tabla "users" con email nulo</u> <br>
+                            <strong>SELECT * FROM users WHERE email IS NULL;</strong><br>
+
+                            <u>-- Obtiene todos datos de la tabla "users" de la tabla "users" con email no nulo</u><br>
+                            <strong>SELECT * FROM users WHERE email IS NOT NULL;</strong><br>
+
+                            <u>-- Obtiene todos datos de la tabla "users" de la tabla "users" con email no nulo y edad
+                                igual a 15</u><br>
+                            <strong>SELECT * FROM users WHERE email IS NOT NULL AND age = 15;</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><a href="https://youtu.be/OuJerKzV5T0?t=10023">IFNULL</a></th>
+                        <td>
+                            <u>-- Obtiene el nombre, apellido y edad de la tabla "users", y si la edad es nula la
+                                muestra
+                                como 0</u><br>
+                            <strong>SELECT name, surname, IFNULL(age, 0) AS age FROM users;</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><a href="https://youtu.be/OuJerKzV5T0?t=7834">MIN, MAX</a></th>
+                        <td>
+                            <u>-- Obtiene el valor menor del campo edad de la tabla "users"</u><br>
+                            <strong>SELECT MIN(age) FROM users;</strong><br>
+
+                            <u>-- Obtiene el valor mayor del campo edad de la tabla "users"</u><br>
+                            <strong>SELECT MAX(age) FROM users;</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><a href="https://youtu.be/OuJerKzV5T0?t=8043">COUNT</a></th>
+                        <td>
+                            <u>-- Cuenta cuantas filas contiene la tabla "users"</u><br>
+                            <strong>SELECT COUNT(*) FROM users;</strong><br>
+
+                            <u>-- Cuenta cuantas filas contienen un dato no nulo en el campo edad de la tabla
+                                "users"</u><br>
+                            <strong>SELECT COUNT(age) FROM users;</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><a href="https://youtu.be/OuJerKzV5T0?t=8128">SUM</a></th>
+                        <td>
+                            <u>-- Suma todos los valores del campo edad de la tabla "users"</u>
+                            <strong>Select SUM(age) FROM users;</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><a href="https://youtu.be/OuJerKzV5T0?t=8293">AVG</a></th>
+                        <td>
+                            <u>-- Obtiene la media de edad de la tabla "users"</u>
+                            <strong>Select AVG(age) FROM users;</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><a href="https://youtu.be/OuJerKzV5T0?t=8335">IN</a></th>
+                        <td>
+                            <u>-- Ordena todos los datos de la tabla "users" con nombre igual a brais y sara</u><br>
+                            <strong>SELECT * FROM users WHERE name IN ('brais', 'sara');</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><a href="https://youtu.be/OuJerKzV5T0?t=8559">BETWEEN</a></th>
+                        <td>
+                            <u>-- Ordena todos los datos de la tabla "users" con edad comprendida entre 20 y 30</u><br>
+                            <strong>SELECT * FROM users WHERE age BETWEEN 20 AND 30;</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><a href="https://youtu.be/OuJerKzV5T0?t=8667">ALIAS</a></th>
+                        <td>
+                            <u>-- Establece el alias 'Fecha de inicio en programación' a la columna init_date</u><br>
+                            <strong>SELECT name, init_date AS 'Fecha de inicio en programación' FROM users WHERE name =
+                                'Brais';</strong><br>
+
+                            <u>-- Consulta igual que la anterior. Representa la posibilidad de usar comillas dobles para
+                                cadenas</u><br>
+                            <strong>SELECT name, init_date AS "Fecha de inicio en programación" FROM users WHERE name =
+                                "Brais";</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><a href=" https://youtu.be/OuJerKzV5T0?t=8826">CONCAT</a></th>
+                        <td>
+                            <u>-- Concatena en una sola columna los campos nombre y apellido</u><br>
+                            <strong>SELECT CONCAT('Nombre: ', name, ', Apellidos: ', surname) FROM users;</strong><br>
+
+                            <u>-- Concatena en una sola columna los campos nombre y apellido y le establece el alias
+                                'Nombre completo'</u><br>
+                            <strong>SELECT CONCAT('Nombre: ', name, ', Apellidos: ', surname) AS 'Nombre completo' FROM
+                                users;</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><a href="https://youtu.be/OuJerKzV5T0?t=8960">GROUP BY</a></th>
+                        <td>
+                            <u>-- Agrupa los resultados por edad diferente</u><br>
+                            <strong>SELECT MAX(age) FROM users GROUP BY age;</strong><br>
+
+                            <u>-- Agrupa los resultados por edad diferente y cuenta cuántos registros existen de cada
+                                una</u><br>
+                            <strong>SELECT COUNT(age), age FROM users GROUP BY age;</strong><br>
+
+                            <u>-- Agrupa los resultados por edad diferente, cuenta cuántos registros existen de cada una
+                                y los ordena</u><br>
+                            <strong>SELECT COUNT(age), age FROM users GROUP BY age ORDER BY age ASC;</strong><br>
+
+                            <u>-- Agrupa los resultados por edad diferente mayor de 15, cuenta cuántos registros existen
+                                de cada una y los ordena</u><br>
+                            <strong>SELECT COUNT(age), age FROM users WHERE age > 15 GROUP BY age ORDER BY age
+                                ASC;</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><a href=" https://youtu.be/OuJerKzV5T0?t=9265">HAVING</a></th>
+                        <td>
+                            <u>-- Cuenta cuantas filas contienen un dato no nulo en el campo edad de la tabla "users"
+                                mayor que 3</u><br>
+                            <strong>SELECT COUNT(age) FROM users HAVING COUNT(age) > 3</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><a href=" https://youtu.be/OuJerKzV5T0?t=9486">CASE</a></th>
+                        <td>
+                            <u>-- Obtiene todos los datos de la tabla "users" y establece condiciones de visualización
+                                de cadenas de texto según el valor de la edad</u><br>
+                            <strong>SELECT *,<br>
+                                CASE <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;WHEN age > 18 THEN 'Es mayor de edad'<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;WHEN age = 18 THEN 'Acaba de cumplir la mayoría de edad'<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;ELSE 'Es menor de edad'<br>
+                                END AS '¿Es mayor de edad?'<br>
+                                FROM users;</strong><br>
+
+                            <u>-- Obtiene todos los datos de la tabla "users" y establece condiciones de visualización
+                                de valores booleanos según el valor de la edad</u><br>
+                            <strong>SELECT *,<br>
+                                CASE <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;WHEN age > 17 THEN True<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;ELSE False<br>
+                                END AS '¿Es mayor de edad?'<br>
+                                FROM users;</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><a href="https://youtu.be/OuJerKzV5T0?si=kXm9meIb2OXX357v&t=10198">Otros modificadores</a></th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="separadores" colspan="3">Escritura de datos</th>
+                    </tr>
+                    <tr>
+                        <th><a href="https://youtu.be/OuJerKzV5T0?t=10370">insertar</a></th>
+                        <td>
+                            <u>-- Inserta un registro con identificador, nombre y apellido en la tabla "users"</u><br>
+                            <strong>INSERT INTO users (user_id, name, surname) VALUES (8, 'María',
+                                'López');</strong><br>
+
+                            <u>-- Inserta un registro con nombre y apellido en la tabla "users"</u><br>
+                            <strong>INSERT INTO users (name, surname) VALUES ('Paco', 'Pérez');</strong><br>
+
+                            <u>-- Inserta un registro con identificador no correlativo, nombre y apellido en la tabla
+                                "users"</u><br>
+                            <strong>INSERT INTO users (user_id, name, surname) VALUES (11, 'El', 'Merma');</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><a href=" https://youtu.be/OuJerKzV5T0?t=10621">UPDATE</a></th>
+                        <td>
+                            <u>-- Establece el valor 21 para la edad del registro de la tabla "users" con identificador
+                                igual a 11</u><br>
+                            <strong>UPDATE users SET age = '21' WHERE user_id = 11;</strong><br>
+
+                            <u>-- Establece el valor 20 para la edad del registro de la tabla "users" con identificador
+                                igual a 11</u><br>
+                            <strong>UPDATE users SET age = '20' WHERE user_id = 11;</strong><br>
+
+                            <u>-- Establece edad y una fecha para el registro de la tabla "users" con identificador
+                                igual a 11</u><br>
+                            <strong>UPDATE users SET age = 20, init_date = '2020-10-12' WHERE user_id = 11;</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><a href="https://youtu.be/OuJerKzV5T0?t=10920">DELETE</a></th>
+                        <td>
+                            <u>-- Elimina el registro de la tabla "users" con identificador igual a 11</u><br>
+                            <strong>DELETE FROM users WHERE user_id = 11;</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="separadores" colspan="3">Administración de la base de datos</th>
+                    </tr>
+                    <tr>
+                        <th><a href="https://youtu.be/OuJerKzV5T0?t=11064">CREATE DATABASE</a></th>
+                        <td>
+                            <u>-- Crea una base de datos llamada "test"</u>
+                            <strong>CREATE DATABASE test;</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><a href="https://youtu.be/OuJerKzV5T0?t=11180">DROP DATABASE</a></th>
+                        <td>
+                            <u>-- Elimina la base de datos llamada "test"</u>
+                            <strong>DROP DATABASE test;</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="separadores" colspan="3">Administración de tablas</th>
+                    </tr>
+                    <tr>
+                        <th><a href="https://youtu.be/OuJerKzV5T0?t=11292">CREATE TABLE</a></th>
+                        <td><u>-- Crea una tabla llamada "persons" con nombre de columna (atributos) de tipo int,
+                                varchar y date</u><br>
+                            <strong>CREATE TABLE persons (<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;id int,<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;name varchar(100),<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;age int,<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;email varchar(50),<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;created date<br>
+                                );</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><a href="https://youtu.be/OuJerKzV5T0?t=11619">NOT NULL</a></th>
+                        <td><u>-- NOT NULL: Obliga a que el campo id posea siempre un valor no nulo</u><br>
+                            <strong>CREATE TABLE persons2 (<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;id int NOT NULL,<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;name varchar(100) NOT NULL,<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;age int,<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;email varchar(50),<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;created date<br>
+                                );</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><a href="https://youtu.be/OuJerKzV5T0?t=11787">UNIQUE</a></t>
+                        <td><u>-- UNIQUE: Obliga a que el campo id posea valores diferentes</u><br>
+                            <strong>CREATE TABLE persons3 (<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;id int NOT NULL,<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;name varchar(100) NOT NULL,<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;age int,<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;email varchar(50),<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;created datetime,<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;UNIQUE(id)<br>
+                                );</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><a href="https://youtu.be/OuJerKzV5T0?t=11911">PRIMARY KEY</a></th>
+                        <td><u>-- PRIMARY KEY: Establece el campo id como clave primaria para futuras relaciones con
+                                otras tablas</u><br>
+                            <strong>CREATE TABLE persons4 (<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;id int NOT NULL,<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;name varchar(100) NOT NULL,<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;age int,<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;email varchar(50),<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;created datetime,<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;UNIQUE(id),<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY(id)<br>
+                                );</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><a href="https://youtu.be/OuJerKzV5T0?t=12121">CHECK</a></th>
+                        <td><u>-- CHECK: Establece que el campo age sólo podrá contener valores mayores o iguales a
+                                18</u><br>
+                            <strong>CREATE TABLE persons5 (<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;id int NOT NULL,<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;name varchar(100) NOT NULL,<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;age int,<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;email varchar(50),<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;created datetime,<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;UNIQUE(id),<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY(id),<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;CHECK(age>=18)<br>
+                                );</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><a href="https://youtu.be/OuJerKzV5T0?t=12243">DEFAULT</a></th>
+                        <td><u>-- DEFAULT: Establece un valor por defecto en el campo created correspondiente a la
+                                fecha del sistema</u><br>
+                            <strong>CREATE TABLE persons6 (<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;id int NOT NULL,<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;name varchar(100) NOT NULL,<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;age int,<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;email varchar(50),<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;created datetime DEFAULT CURRENT_TIMESTAMP(),<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;UNIQUE(id),<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY(id),<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;CHECK(age>=18)<br>
+                                );</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><a href="https://youtu.be/OuJerKzV5T0?t=12362">AUTO INCREMENT</a></th>
+                        <td><u>-- AUTO_INCREMENT: Indica que el campo id siempre se va a incrementar en 1 con cada
+                                nuevo inserto</u><br>
+                            <strong>CREATE TABLE persons7 (<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;id int NOT NULL AUTO_INCREMENT,<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;name varchar(100) NOT NULL,<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;age int,<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;email varchar(50),<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;created datetime DEFAULT CURRENT_TIMESTAMP(),<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;UNIQUE(id),<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY(id),<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;CHECK(age>=18)<br>
+                                );</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><a href="https://youtu.be/OuJerKzV5T0?t=12412">DROP TABLE</a></th>
+                        <td>
+                            <u>-- Elimina la tabla llamada "persons8"</u><br>
+                            <strong>DROP TABLE persons8;</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><a href="https://youtu.be/OuJerKzV5T0?t=12461">ALTER TABLE</a></th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th><a href="https://youtu.be/OuJerKzV5T0?t=12578">ADD</a></th>
+                        <td>
+                            <u>-- ADD: Añade un nuevo atributo surname a la tabla "persons8"</u>
+                            <strong>
+                                ALTER TABLE persons8 <br>
+                                ADD surname varchar(150);
+                            </strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><a href="https://youtu.be/OuJerKzV5T0?t=12624">RENAME COLUMN</a></th>
+                        <td>
+                            <u>-- RENAME COLUMN: Renombra el atributo surname a description en la tabla "persons8"</u>
+                            <strong>
+                                ALTER TABLE persons8 <br>
+                                RENAME COLUMN surname TO description;
+                            </strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><a href="https://youtu.be/OuJerKzV5T0?t=12675">MODIFY COLUMN</a></th>
+                        <td>
+                            <u>-- MODIFY COLUMN: Modifica el tipo de dato del atributo description en la tabla
+                                "persons8"</u>
+                            <strong>
+                                ALTER TABLE persons8 <br>
+                                MODIFY COLUMN description varchar(250);
+                            </strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><a href="https://youtu.be/OuJerKzV5T0?t=12712">DROP COLUMN</a></th>
+                        <td>
+                            <u>-- DROP COLUMN: Elimina el atributo description en la tabla "persons8"</u>
+                            <strong>
+                                ALTER TABLE persons8 <br>
+                                DROP COLUMN description;
+                            </strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="separadores" colspan="3">Relaciones entre tablas</th>
+                    </tr>
+                    <tr>
+                        <th><a href="https://youtu.be/OuJerKzV5T0?t=12852">RELACIÓN 1:1</a></th>
+                        <td>1:1</td>
+                    </tr>
+                    <tr>
+                        <th><a href="https://youtu.be/OuJerKzV5T0?t=13117">RELACIÓN 1:N</a></th>
+                        <td>1:N</td>
+                    </tr>
+                    <tr>
+                        <th><a href="https://youtu.be/OuJerKzV5T0?t=13208">RELACIÓN N:M</a></th>
+                        <td>RELACIÓN N:M</td>
+                    </tr>
+                    <tr>
+                        <th><a href="https://youtu.be/OuJerKzV5T0?t=13343">AUTOREFERENCIA</a></th>
+                        <td>AUTOREFERENCIA</td>
+                    </tr>
+                    <tr>
+                        <th class="separadores" colspan="3">Creación de tablas relacionadas</th>
+                    </tr>
+                    <tr>
+                        <th><a href="https://youtu.be/OuJerKzV5T0?t=13490">TABLAS 1:1</a></th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th><a href="https://youtu.be/OuJerKzV5T0?t=13732">TABLAS 1:N</a></th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th><a href="https://youtu.be/OuJerKzV5T0?t=14313">TABLAS N:M</a></th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="separadores" colspan="3">Almacenamiento de datos relacionados</th>
+                    </tr>
+                    <tr>
+                        <th><a href="https://youtu.be/OuJerKzV5T0?t=14994">DATOS 1:1</a></t>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th><a href="https://youtu.be/OuJerKzV5T0?t=15203">DATOS 1:N</a></th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th><a href="https://youtu.be/OuJerKzV5T0?t=15474">DATOS N:M</a></th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="separadores" colspan="3">Consulta de datos relacionados</th>
+                    </tr>
+                    <tr>
+                        <th><a href="https://youtu.be/OuJerKzV5T0?t=16101">INNER JOIN</a></th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th><a href="https://youtu.be/OuJerKzV5T0?t=17045">LEFT JOIN</a></th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th><a href="https://youtu.be/OuJerKzV5T0?t=17399">RIGHT JOIN</a></th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th><a href="https://youtu.be/OuJerKzV5T0?t=17536">UNION</a></th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="separadores" colspan="3">CONCEPTOS AVANZADOS</th>
+                    </tr>
+                    <tr>
+                        <th><a href="https://youtu.be/OuJerKzV5T0?t=18219">INDEX</a></th>
+                        <td>
+                            <u>-- Crea un índice llamado "idx_name" en la tabla "users" asociado al campo "name"</u><br>
+                            <strong>CREATE INDEX idx_name ON users(name);</strong><br>
+
+                            <u>-- Crea un índice único llamado "idx_name" en la tabla "users" asociado al campo
+                                "name"</u><br>
+                            <strong>CREATE UNIQUE INDEX idx_name ON users(name);</strong><br>
+
+                            <u>-- Crea un índice llamado "idx_name_surname" en la tabla "users" asociado a los campos
+                                "name" y "surname"</u><br>
+                            <strong>CREATE UNIQUE INDEX idx_name_surname ON users(name, surname);</strong><br>
+
+                            <u>-- Elimina el índice llamado "idx_name"</u><br>
+                            <strong>DROP INDEX idx_name ON users;</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><a href="https://youtu.be/OuJerKzV5T0?t=18961">TRIGGER</a></th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th><a href=" https://youtu.be/OuJerKzV5T0?t=19663">VIEW</a></th>
+                        <td>
+                            <u>-- Crea una vista llamada "v_adult_users" con los nombres y edades de usuarios de la
+                                tabla "users" que tienen una edad igual o mayor a 18 años.</u><br>
+                            <strong>CREATE VIEW v_adult_users AS<br>
+                                SELECT name, age<br>
+                                FROM users<br>
+                                WHERE age >= 18;</strong><br>
+
+                            <strong>SELECT * FROM v_adult_users;</strong><br>
+
+                            <u>-- Elimina la vista llamada "v_adult_users"</u><br>
+                            <strong>DROP VIEW v_adult_users;</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><a href="https://youtu.be/OuJerKzV5T0?t=20033">STORED PROCEDURE</a></th>
+                        <td>
+                            <u>-- Crea un procedimiento almacenado llamado "p_all_users" que obtiene todos los datos de
+                                "users"</u><br>
+                            <strong>DELIMITER //</strong><br>
+                            <strong>CREATE PROCEDURE p_all_users()</strong><br>
+                            <strong>BEGIN</strong><br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<strong>SELECT * FROM users;</strong><br>
+                            <strong>END//</strong><br>
+
+                            <strong>-- Invoca al procedimiento almacenado llamado "p_all_users"</strong><br>
+                            <strong>CALL p_all_users;</strong><br>
+
+                            <u>-- Crea un procedimiento almacenado llamado "p_age_users" parametrizado para obtener
+                                usuarios con edad variable</u><br>
+                            <strong>DELIMITER //</strong><br>
+                            <strong>CREATE PROCEDURE p_age_users(IN age_param int)</strong><br>
+                            <strong>BEGIN</strong><br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<strong>SELECT * FROM users WHERE age = age_param;</strong><br>
+                            <strong>END//</strong><br>
+
+                            <strong>-- Invoca al procedimiento almacenado llamado "p_age_users" con un parámetro de
+                                valor 30</strong><br>
+                            <strong>CALL p_age_users(30);</strong><br>
+
+                            <u>-- Elimina el procedimiento almacenado llamado "p_age_users"</u><br>
+                            <strong>DROP PROCEDURE p_age_users;</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><a href="https://youtu.be/OuJerKzV5T0?t=20501">TRANSACCIONES</a></th>
+                        <td>
+                            <u>-- Inicia una nueva transacción. Desde este punto, todas las modificaciones realizadas en
+                                la
+                                base de datos son temporales y solo son visibles dentro de esta transacción</u><br>
+                            <strong>START TRANSACTION;</strong><br>
+
+                            <u>-- Finaliza una transacción con éxito. Cuando se ejecuta, todos los cambios realizados en
+                                la
+                                base de datos durante la transacción actual se hacen permanentes y visibles</u><br>
+                            <strong>COMMIT;</strong><br>
+
+                            <u>-- Deshace las operaciones realizadas en una transacción, revirtiendo la base de datos
+                                al estado en que se encontraba antes de iniciar la transacción</u><br>
+                            <strong>ROLLBACK;</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><a href="https://youtu.be/OuJerKzV5T0?t=20701">CONCURRENCIA</a></th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="separadores" colspan="3">Conexión desde código</th>
+                    </tr>
+                    <tr>
+                        <th><a href="https://youtu.be/OuJerKzV5T0?t=20876">CONECTORES</a></th>
+                    </tr>
+                    <tr>
+                        <th><a href="https://youtu.be/OuJerKzV5T0?t=21149">SQL INJECTION</a></t>
+                    </tr>
+                    <tr>
+                        <th><a href="https://youtu.be/OuJerKzV5T0?t=21641">Otros clientes SQL</a></th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th><a href="https://youtu.be/OuJerKzV5T0?t=22070">PostgresSQL</a></t>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th><a href="https://youtu.be/OuJerKzV5T0?t=23214">Despliegue en la nube</a></th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>Próximos pasos</th>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="container">
+            <a href="#">Volver</a> |
+            <a href="#">Portada</a> |
+            <a href="#">Mapa del sitio</a>
+        </div>
+    </main>
+</body>
+
+</html>

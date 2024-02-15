@@ -1,0 +1,70 @@
+<!--
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1></h1>
+    <h2></h2>
+    <h3></h3>
+    <h4></h4>
+    <h5></h5>
+    <h6></h6>
+    <p></p>
+    <hr></hr> o <hr/>
+    <!- ATRIBUTOS ->
+
+</body>
+</html>-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Evento de Ratón</title>
+    <script>
+        function saludar() {
+            var nombre = document.getElementById("nombre").value;
+            alert("¡Hola, " + nombre + "!");
+        }
+    </script>
+    <script>
+        function cambiarColor() {
+            document.getElementById("miBoton").style.backgroundColor = "red";
+        }
+    </script>
+    <script>
+        function cambiarContenido() {
+            document.getElementById("demo").innerHTML = "¡Gitano!";
+        }
+    </script>
+    <script>
+        alert("Ten cuidado podrías estar cargado de demasiada sensualidad");
+    </script>
+</head>
+<body>
+    <form id="miFormulario">
+        <input type="text" id="nombre" placeholder="Nombre">
+        <button type="button" onclick="saludar()">Saludar</button>
+    </form>
+    <button id="miBoton" onmouseover="cambiarColor()">Pasa el raton aqui</button>
+
+    <p id="demo">Haz clic en el botón para ver tu suerte</p>
+    <button onclick="cambiarContenido()">Haz clic</button>
+
+    
+    
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

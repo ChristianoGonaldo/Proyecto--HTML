@@ -1,0 +1,192 @@
+/* CSS para el body */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: url(../img/MAR.jpg) center center fixed;
+
+}
+
+
+form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 1em; 
+    min-height: 100vh;
+    padding: 1em;
+}
+
+#datos {
+    background-color: rgba(222, 155, 155, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgb(163, 9, 9);
+    padding: 20px;
+    width: 300px;
+    max-width: 100%;
+} 
+
+
+div{
+    background-color: rgb(255, 255, 255, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(144, 185, 214, 0.8);
+    padding: 20px;
+    width: 300px;
+    max-width: 100%;
+}
+
+#miFormulario h1 {
+    color: #333;
+    text-align: center;
+    font-family: "honk", system-ui;
+    font-size: 20px;
+    text-shadow: 2px 2px 2px saddlebrown;
+    font-size: 2em;
+}
+
+h2 {
+    color: #333;
+    text-align: center;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+
+}
+
+
+.preguntas label {
+    display: block;
+    margin: 10px 0 5px;
+    color: #000000;
+}
+
+
+
+a{
+    text-decoration: none;
+    color:rgb(92, 26, 26)
+}
+
+#Textarea {
+    display: none; /* Oculta el textarea inicialmente */
+}
+
+/* FOOTER CSS */
+footer {
+    background-color: #f0f0f0;
+    padding: 10px;
+    text-align: center;
+}
+ul{
+    display: flex;
+    list-style: none;
+}
+footer li{
+    margin-right: 10px;
+}
+
+
+/* Boton tipo sumbit */
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: #ffffff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type="button"]:hover {
+    background-color: #cf8d11;
+    color:rgb(25, 6, 6);
+    text-transform: uppercase;
+    font-family: 'Protest Riot', sans-serif;
+}
+
+
+
+/* Para los section de las datos */
+.datos label {
+    display: block;
+    margin: 10px 0 5px;
+    color: #000000;
+    font-family: 'Protest Riot', sans-serif;
+    font-size: 1.2em;
+    
+}
+
+.datos  input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border: 1px solid #3a0f6e;
+    border-radius: 4px;
+    background-color: rgb(255, 255, 255, 0.7);
+}
+
+/* Para los section de las preguntas */
+.preguntas h2 {
+    display: block;
+    margin: 10px 0 5px;
+    color: #000000;
+}
+
+.preguntas > div {
+    margin-bottom: 40px; /* Ajusta según sea necesario */
+}
+
+
+/* Botones */
+#Musica{
+    padding: 15px 15px;
+    cursor: pointer;
+    border-radius: 50px;
+    background-image: url('../img/Musica.png'); /* Ruta de tu imagen de fondo */
+    background-size: cover; /* Ajusta el tamaño de la imagen */
+    background-position: center; /* Centra la imagen en el botón */
+
+    position: fixed;
+    top: 10px;
+    right: 10px;
+}
+
+#Parada{
+    padding: 15px 15px;
+    cursor: pointer;
+    border-radius: 50px;
+    background-image: url('../img/STOP.jpeg'); /* Ruta de tu imagen de fondo */
+    background-size: cover; /* Ajusta el tamaño de la imagen */
+    background-position: center; /* Centra la imagen en el botón */
+
+    position: fixed;
+    top: 10px;
+    right: 10px;
+}
+     
+#Meme{
+    padding: 40px 40px;
+    cursor: pointer;
+    border-radius: 50px;
+    background-image: url('../img/Meme.jpeg'); /* Ruta de tu imagen de fondo */
+    background-size: cover; /* Ajusta el tamaño de la imagen */
+    background-position: center; /* Centra la imagen en el botón */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#Metro{
+    border: 2px solid blue;
+    color: white;
+
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}

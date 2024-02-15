@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Racista?</title>
+        <link rel="stylesheet" href="../CSS/Prueba1.0.css">
+        <script>
+            function generarRANDOMyelegirCancion() {
+                var numeroAleatorio = Math.floor(Math.random() * 7) + 1; 
+                var reproductor = document.getElementById("reproductor");
+                reproductor.src = "audio/Audio" + numeroAleatorio + ".mp3";
+                reproductor.load();
+                reproductor.play();
+            }
+
+            function Parar() {
+                var reproductor = document.getElementById("reproductor");
+                reproductor.pause();
+                reproductor.currentTime = 0;
+            }
+
+            function playRandomVideo() {
+                var videos = [
+                    'Video/Random/Etrec.mp4',
+                    'Video/Random/Coco.mp4',
+                    'Video/Random/Pitufo.mp4',
+                    'Video/Random/fortinait.mp4',
+                    'Video/Random/Pera.mp4',
+                    'Video/Random/Carl.mp4',
+                    'Video/Random/Cucaracha.mp4',
+                    'Video/Random/MeLaMascan.mp4',
+                    'Video/Random/John Cena.mp4',
+                    'Video/Random/MonoAK.mp4',
+                    'Video/Random/AfricanGuy.mp4',
+                    'Video/Random/Dandy.mp4',
+                    'Video/Random/SADL.mp4',
+                    'Video/Random/orina.mp4',
+                    'Video/Random/triangulo.mp4',
+                    'Video/Random/turtle.mp4',
+                    'Video/Random/Eminem.mp4'
+                    // Agrega más videos según sea necesario
+                ];
+
+                var numeroAleatorio = Math.floor(Math.random() * videos.length);
+                var videoUrl = videos[numeroAleatorio];
+
+                window.location.href = videoUrl;
+            }
+
+        </script>
+    </head>
+    <body>
+        
+        <audio id="reproductor" controls style="display: none;"></audio>
+
+            <button id="Musica" onclick="generarRANDOMyelegirCancion()"></button>
+            
+            <button id="Parada" onclick="Parar()"></button> 
+        <div id="cuerpo">
+            <main>
+                <section>
+                    <form id="formulario1">
+                        <h2>Formulario</h2>
+                
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                
+                        <label for="apellido">Apellido:</label>
+                        <input type="text" id="apellido" name="apellido" required>
+                
+                        <label for="email">Correo Electrónico:</label>
+                        <input type="email" id="email" name="email" required>
+                
+                        <input id="Enviar" type="submit" value="Enviar">
+                    </form>
+                    <form id="formulario2" action="Ranking1.0.hmtl" method="post">
+                        <h1>Empezamos con las preguntas</h1>
+                        <h2>¿Cúal es tu raza?</h2>
+                        <label><input type="radio" name="preguntaRAZA" value="0"><a href="Video/Raza/negro.mp4">Africana</a></label>
+            
+                        <label><input type="radio" name="preguntaRAZA" value="0"><a href="Video/Raza/Peruano.mp4">Peruana</a></label>
+
+                        <label></label><input type="radio" name="preguntaRAZA" value="0"><a href="Video/Raza/Gitano.mp4">Gitana</a></label>
+
+                        <label><input type="radio" name="preguntaRAZA" value="0"><a href="Video/Raza/Chino.mp4">China</a></label>
+
+                        <label><input type="radio" name="preguntaRAZA" value="1"><a href="Video/Raza/España.mp4">ARIA ESPAÑOLA</a></label>
+
+                        <label><input type="radio" name="preguntaRAZA" value="0"><a href="Video/Raza/Marroqui.mp4">Marroquí</a></label>
+
+                        <label><input type="radio" name="preguntaRAZA" value="3"><a href="Video/Raza/Hitler.mp4">ARIA Alemana</a></label>
+                    </form>
+                    <form id="formulario3" action="Ranking1.0.html" method="post">
+                        <h2>¿Quién es Hitler para ti?</h2>
+                        <label><input type="radio" name="pregunta1" value="2">Un héroe</label>
+            
+                        <label><input type="radio" name="pregunta1" value="1"> El villano de una historia mal contada</label>
+            
+                        <label><input type="radio" name="pregunta1" value="0">Un puto subnormal</label>
+
+                        <label><input type="radio" name="pregunta1" value="-1">¿Quien es ese?</label>
+                    
+                        <h2>¿Tienes fimosis?</h2>
+                        <label><input type="radio" name="pregunta1" value="1">Sí</label>
+            
+                        <label><input type="radio" name="pregunta1" value="0"><a href="Video/">No, soy mujer</a></label>
+
+                        
+            
+                    
+                        <input type="submit" value="Enviar respuestas">
+                    </form>
+        
+                </section>
+            </main>
+            <aside>
+                <article>
+                    <h2 class="titulosAside">Días de la semana</h2>
+                    <div id="registro" class="cuerpolateral">
+                        <p><a href="../img/Lunes.png">Lunes</a></p>
+                        <p><a href="../img/Martes.jpeg">Martes</a></p>
+                        <p><a href="../img/miercoles.jpeg">Miércoles</a></p>
+                        <p><a href="Video/Semana/Jueves.mp4">Jueves</a></p>
+                        <p><a href="Video/Semana/Viernes.mp4">viernes</a></p>
+                        <p><a href="../img/sabado.png">Sábado</a></p>
+                        <p><a href="../img/Domingo.jpg">Domingo</a></p>
+                    </div>
+                </article>
+                <article>
+                    <h2 class="titulosAside"><button id="Meme" onclick="playRandomVideo()"></button></h2>
+                </article>
+            </aside>
+        </div>
+        
+    </body>
+    <footer>Proyecto HTML &copy; D.D</footer>
+</html>
+
+
+
+
+<!-- <table>
+    <tbody>
+        <tr><td><b>Día</b></td></tr>
+        <tr><td><a href="../img/Lunes.png">Lunes</a></td></tr>
+        <tr><td><a href="../img/Martes.jpeg">Martes</a></td></tr>
+        <tr><td><a href="../img/miercoles.jpeg">Miércoles</a></td></tr>
+        <tr><td><a href="img/">Jueves</a></td></tr>
+        <tr><td><a href="Video/Chavales, que es viernes!.mp4">viernes</a></td></tr>
+        <tr><td><a href="../img/sabado.png">Sábado</a></td></tr>
+        <tr><td><a href="../img/Domingo.jpg">Domingo</a></td></tr>
+    </tbody>
+</table> -->

@@ -1,0 +1,177 @@
+#Musica{
+  padding: 15px 15px;
+  cursor: pointer;
+  background-image: url('../img/Musica.png'); /* Ruta de tu imagen de fondo */
+  background-size: cover; /* Ajusta el tamaño de la imagen */
+  background-position: center; /* Centra la imagen en el botón */
+}
+
+#Parada{
+  padding: 15px 15px;
+  cursor: pointer;
+  border-radius: 50px;
+  background-image: url('../img/STOP.jpeg'); /* Ruta de tu imagen de fondo */
+  background-size: cover; /* Ajusta el tamaño de la imagen */
+  background-position: center; /* Centra la imagen en el botón */
+}
+
+#Meme{
+  padding: 40px 40px;
+  cursor: pointer;
+  border-radius: 50px;
+  background-image: url('../img/Meme.jpeg'); /* Ruta de tu imagen de fondo */
+  background-size: cover; /* Ajusta el tamaño de la imagen */
+  background-position: center; /* Centra la imagen en el botón */
+}
+
+form {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(209, 24, 24, 0.1);
+    padding: 20px;
+    width: 300px;
+    max-width: 100%;
+}
+
+/* Estilo global */
+body {
+  font-family: Verdana;
+  font-size: 12px;
+}
+
+
+/* Header */
+
+
+/* #contenedor */
+
+
+/* #cuerpo */
+#cuerpo {
+  display: flex;
+}
+
+main {
+  width: 90%;
+  padding: 15em;
+}
+
+aside {
+  width: 30%;
+  background-color: rgb(255, 231, 221);
+  padding: 10px;
+}
+
+#cuerpo a{
+  font-size: 20px;
+  
+}
+
+/* Section */
+section {
+  padding: 2em;
+  text-align: justify;
+}
+
+section h1 {
+  font-size: 200%;
+  margin-bottom: 1rem;
+}
+
+/* Artículos del main */
+main article {
+  padding: 1em;
+}
+
+/* Aside - Cuerpolateral */
+.cuerpolateral {
+  padding: 1.5em;
+}
+
+/* Clase titulosAside */
+.titulosAside {
+  background: brown;
+  color: white;
+  padding: 0.8em 0.5em;
+  margin: 0.8em 0;
+}
+
+
+
+/* Footer */
+footer {
+  text-align: center;
+  color: gray;
+  border-top: 4px solid rgb(255, 231, 221);
+}
+
+main {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+#formulario1 h2{
+  font-size:30px;
+  color:purple;
+  text-align: center;
+
+}
+#formulario3 h2 {
+  font-size: 15px;
+  color:red;
+}
+
+#formulario3 {
+  border-radius: 10px;
+}
+
+
+form{
+  margin: 40px;
+}
+
+form label {
+  display: block;
+  margin: 10px 0;
+}
+
+/* Botones */
+form input[type="text"],
+form input[type="email"],
+form textarea {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+
+/* Boton para mover*/
+form input[type="range"] {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+
+/*Botón enviar*/
+form input[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+form input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+
+/* Otros estilos según tus necesidades */

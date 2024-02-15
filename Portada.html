@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+    <script>
+        document.getElementById('video-container').addEventListener('mouseover', function() {
+            document.getElementById('deOpen').play();
+        });
+    </script>
+
+    <title>Pregunta Seria</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #000;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+
+        #video-background {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1000;
+        }
+
+
+        main {
+            /* background: url('') center/cover no-repeat; */
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0);
+        }
+
+        audio {
+            display: none;
+            /* Ocultar el reproductor de audio */
+        }
+
+        h1 {
+            font-family: 'Creepster', system-ui;
+            font-size: 100px;
+        }
+
+
+        a {
+            font-family: 'Creepster', system-ui;
+            font-size: 90px;
+            color: red;
+            padding: 60px;
+            text-decoration: none;
+        }
+
+        a {
+            position: relative;
+            /* Asegura que los enlaces estén por encima del botón */
+            z-index: 2;
+            /* Asegura que los enlaces estén por encima del botón */
+        }
+
+        button#reproducirAudio {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            border: none;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+            /* Asegura que el botón esté por encima del video */
+        }
+    </style>
+
+    <audio id="deOpen" autoplay loop>
+        <source src="audio/Portada/indian-music-mp3.mp3" type="audio/mp3">
+    </audio>
+    <audio id="No">
+        <source src="audio/Portada/doraemon.mp3" type="audio/mp3">
+    </audio>
+</head>
+
+<body>
+    <main>
+        <div id="pregunta0">
+            <h1>¿Eres racista?</h1>
+            <a href="Formulario.html">Si</a>
+            <a href="HTMLS/video.html" id="enlaceNo">NO</a>
+        </div>
+        <div id="video-container">
+            <button id="reproducirAudio">
+                <video autoplay muted loop id="video-background">
+                    <source src="Video/portada/miedo.mp4" type="video/mp4">
+                </video>
+            </button>
+            <audio id="deOpen" autoplay loop>
+                <source src="audio/Portada/indian-music-mp3.mp3" type="audio/mp3">
+            </audio>
+
+
+
+        </div>
+    
+    
+    <audio id="No">
+        <source src="audio/Portada/doraemon.mp3" type="audio/mp3">
+    </audio>
+
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Video y Audio</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+    }
+    #video-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+    video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    button#play-video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        border: none;
+        font-size: 24px;
+        color: white;
+        cursor: pointer;
+        z-index: 1;
+        /* Asegura que el botón esté por encima del video */
+    }
+    #audio {
+        display: none;
+    }
+    #play-video:hover + #audio {
+        display: inline-block;
+    }
+</style>
+</head>
+<body>
+
+<div id="video-container">
+    <button id="play-video">
+        <video autoplay muted loop>
+            <source src="../Video/portada/laROCA.mp4" type="video/mp4">
+            Tu navegador no soporta el elemento de video.
+        </video>
+    </button>
+    <audio id="audio" controls>
+        <source src="../audio/Portada/doraemon.mp3" type="audio/mp3">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+</div>
+<script>
+    document.getElementById('video-container').addEventListener('mouseover', function() {
+        document.getElementById('audio').play();
+    });
+</script>
+</body>
+</html>

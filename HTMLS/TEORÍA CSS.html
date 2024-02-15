@@ -1,0 +1,230 @@
+/****************************************************************************************************************************************************************
+*                                                       <--------- TEORÍA CSS --------->
+*****************************************************************************************************************************************************************
+*   <<  SELECTORES  >>
+*   <style></style> //Y dentro el CSS, en el propio HTML
+*   <link></link> //CSS a parte, con atributos como href para la url,media para el medio y el rel para el stylesheet. 
+*       
+*       --MEDIOS--
+*           all:Todos los medios definidos por defecto
+*           print: "Vista previa para imprimir"
+*           screen: Ordenadorm tablets, smartphones...
+*           speech: Sintetizadores para personas discapacitadas
+*       
+*       --DEFINICIONES BÁSICAS--
+*           Selector{propiedad:valor;propiedad:valor;}
+*           
+*       
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*   <<  MEDIDAS  >>
+*       height: 200px;  /Altura
+*       width: 300px;   /Anchura
+*   
+*       margin: 1em 2em; /Margenes en em y en % //Arriba, derecha, abajo, izquierda
+*                     em: Relativo al tamaño de letra del elemento
+*                     rem: Relativa al tamaño de letra del elmento raíz
+*       font-size: 24pt; /Tamaño letra en puntos
+*   
+*   <<  FONT  >>
+*       font-family: "Courier New", Courier, monospace; /Si no puede usar el 1º usará el 2º y si no el 3º por defecto
+*       @font-face /Como selector. Requiere 
+*                              src:Para la ruta del archivo fuente
+*                              format: El nombre del formato de la fuente y
+*                              font-family para dar el nombre de la fuente y tener varias formatos
+*       font-size: /tamaño
+*               tamaño-absoluto, tamaño relativo, distancia, porcentaje
+*
+*       font-weight: /Grosor del trazo
+*                 bold, bolder, lighter, 100-900 
+*
+*       font-style: /Inclinación
+*               italic, oblique
+*
+*       font-variant: /variante
+*                 small-caps, initial, inherit
+*   
+*           Style  Variant Weight  Size
+*       font: [estilo][variant][peso][tamaño]/[altura-de-linea]
+*         [tipo de letra],[otro tipo de letra]
+*   
+*   <<  TEXT  >>
+*       white-space: /Comportamiento de los espacios para evitar ---> &nbsp;
+*                nowrap, pre, pre-line, pre-wrap
+*       tab-size: |
+*   
+*       --Decoration--
+*           text-align: /Alineacion
+*               center, justify, left, right
+*           text-decoration: /Decoracion del texto
+*                    blink, line-through, overline, underline
+*           text-transform: /Mayúsculas, minúsculas
+*                   capitalize, lowercase, uppercase
+*   
+*   <<  COLOR  >> 
+*       RGB: background-color: rgb(red, green, blue)
+*       RGBA: background-color: rgba(red, green, blue, alpha)
+*       Hexadecimales: background-color: #FFFFFF o comprimible a rgb con #FFF
+*       HSL: /Hue (tonalidad), Saturation (grado de contraste), lightness (grado de luminosidad)
+*        background-color: hsl(120, 80%, 50%) <--- VERDE 
+*       HSLA: /Lo mismo pero con transparencia
+*   
+*   <<  SOMBRAS  >>
+*       text-shadow: /4 parámetros -> Color, X e Y, Suavizado
+*       box-shadow: ?? diapositiva 40
+*   
+*   <<  BOX-MODEL  >> 
+*   /Comportamiento de CSS que hace que los elementos sean cajas rectangulares
+*       width y height: /Valores <medida>, <porcentaje>, auto, inherit
+*           Aplica a todos excepto a img, rows y grupos de rows
+*   
+*       --MARGINS-- 
+*       /Valores <medida>, <porcentaje>, auto, inherit 
+*           margin-top
+*           margin-right
+*           margin-bottom
+*           margin-left
+*           /A todos los elementos menos a top y bottom que se aplican a elementos de bloque y imágenes
+*       
+*           Shorthand(orden de agujas reloj) 
+*           margin: 5em, 1em, /Al haber 2 la primera se aplica arriba y abajo
+*                          y la segunda a izq y der
+*   
+*           /Para centrar algo horizontalmente usa
+*           display: flex; justify-content: center; or 0 auto;
+*   
+*       --Padding--
+*       /Valores <medida>, <porcentaje>, inherit
+*       /Se aplica a todos menos a algunos elementos de tabla como grupos de cabezeras y pies de tabla
+*   
+*       --BORDER--
+*           border-top-... /... borde superior
+*           border-right-... /... borde derecho
+*           border-bottom-... /... borde inferior
+*           border-left-... /... borde izquierda
+*
+*           border: /4 bordes simultáneos
+*                   border-color, border-width, border-style
+*
+*           border-radius: /Esquinas redondeadas
+*                         [distancia, porcentaje]
+*
+*           border-color: /Color de los bordes
+*                         [color, transparent]
+*
+*           border-width: /Grosor de los bordes
+*                         [medium, thick, thin, distancia]
+*
+*           border-style: /Estilos de los bordes
+*                         [none(default), hidden, dashed, dotted, double, groove, inset, outset, ridge, solid, inherit]
+*       
+*       --FONDOS--
+*           background
+*               background-attachment /Ligadura de la imagen, si se mueve con la página o no
+*                   fixed, scroll
+*
+*               background-color /Color de fondo
+*                   transparent, color
+*                   background-color: #F5F5F5
+*               
+*               background-image /Imagen de fondo
+*                   none, uri
+*                   background-image: url();
+*
+*               background-position /Posicion de la imagen de fondo
+*                   [left, center, right, distancia, porcentaje][top, center, bottom, distancia, porcentaje]
+*                   [left, center, right][top, center, bottom]
+*
+*               background-repeat /Repeticion de la imagen de fondo
+*                   no-repeat /Muestra la imagen una vez y no se repite
+*                   repeat /Por defecto
+*                   repeat-x /Repite la imagen horizontalmente
+*                   repeat-y /Repite la imagen verticalmente
+*                   space ???
+*                   round ???
+*   
+*   <<  LISTAS  >>
+*       list-style          /Todas las propiedades para una lista en una declaración
+*       list style-image    /Especifica una imagen como el marcador de elemento de lista
+*       list style-position /Especifica la posicion de los marcadores de elementos de lista(viñetas)
+*       list style-type     /Especifica el tipo de marcador de elemento de lista
+*
+*
+*   <<  POSICIONAMIENTO  >> /top:20px o left:20px
+*       static
+*       relative
+*       absolute
+*       fixed
+*       sticky
+*   
+*       --Z-INDEX--
+*       CSS permite controlar la posición tridimensional de las cajas 
+*       posicionadas. De esta forma, es posible indicar las cajas que se 
+*       muestran delante o detrás de otras cajas cuando se producen solapamientos.
+*      
+*       --FLOAT--
+*       El posicionamiento flotante es el más difícil de comprender. Está siendo desplazado por flex y grid. 
+*       Cuando una caja se posiciona con el modelo de posicionamiento flotante, automáticamente se convierte en una caja flotante, lo que significa que se 
+*       desplaza hasta la zona más a la izquierda o más a la derecha de la posición en la que originalmente se encontraba.
+*       Valores: left | right | none | inherit
+*
+*       --CLEAR--
+*       
+*       --DISPLAY--
+*       inline | block | contents| flex | grid | inline-block | inline-flex | inline-grid | inline-table |
+*       list-item | run-in | table | table-caption | table-column-group | table-header-group | table-footer-group |
+*       table-row-group | table-cell | table-column | table-row | none | initial | inherit
+*       none, hidden
+*       
+*   << FLEX  >>
+*       --FLEXBOX-- /Sistema de diseño de página unidimensional
+*           Flex-item
+*           Flex-container
+*           Flex-start, Flex-end, denter, stretch, baseline
+*       --FLEXBOX.FLEX-DIRECTION--
+*           
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*

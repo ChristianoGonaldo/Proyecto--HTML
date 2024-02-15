@@ -1,0 +1,800 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+/****************************************************************** Class header ******************************************************************/
+
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Class rectangle */
+
+.rectangle {
+    width: 50%;
+    height: 100px; 
+    border: 1px solid #000; 
+    margin: 5px; 
+    box-sizing: border-box;
+}
+
+.rectangle > input {
+    border: none;
+    border-bottom: 1px solid #000; 
+}
+
+.rectangle > label, input{
+    margin-top: 5px;
+    margin-left: 9px;
+}
+
+.rectangle button{
+    width: 20px;
+    height: 20px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 50%;
+}
+
+.rectangle input[type=number]{
+    width: 30px;
+}
+
+
+
+
+
+/* Cerramos la clase header */
+
+/****************************************************************** Class body ******************************************************************/
+
+/* Class Nav */
+.navArriba{
+    width: 100%; 
+    border: 1px solid #000; 
+    margin: 0px 5px;
+    box-sizing: border-box; 
+   
+}
+
+.navArriba input[type=number]{
+    width: 30px;
+    font-size: 14px; 
+    padding: 5px; 
+    
+    border: none;
+    border-bottom: dotted;
+}
+
+.navArriba input[type=text]{
+    width: 120px; 
+    font-size: 14px;
+    padding: 5px; 
+
+    border: none;
+    border-bottom: dotted;
+}
+
+.navArriba label[for="TotalDias"] {
+    margin-left: 100px;
+}
+
+.navArriba label{
+    padding-left: 9px;
+}
+
+/* Cerramos la clase nav */
+
+/* Class devengos */
+
+    .body label[for="TotalDevengado1"] {
+        margin-left: 350px; /* Ajusta el valor según sea necesario para separar el label a la derecha */
+    }
+
+    /* ESTE ES MUY IMPORTANTE, ya que es para lo p donde van a aparecer los datos calculados */
+    .devengos p.TotalDevengado{
+        border-bottom: 3px solid black;
+    }
+
+    .devengos h2{
+        padding: 8px 0px 0px 17px;
+    }
+    .devengos ol{
+        padding-left: 30px;
+    }
+
+    .devengos{
+        width: 100%;
+        border: 1px solid #000; 
+        margin: 0px 5px; 
+        box-sizing: border-box; 
+    }
+
+    .devengos label{
+        padding-left: 16.5px;
+    }
+
+    /* Clases para poner los bordes o punteados o lineas */
+
+    .doteados{
+        border: none;
+        border-bottom: dotted;
+
+    }
+
+    .lineados{
+        border: none;
+        border-bottom: 3px solid black;
+    }
+    /* Cerramos las clases dot y lines */
+
+    /* Clases para los botones de las secciones salariales y no salariales */
+    .NoSalariales input{
+        width: 6cqb;
+    }
+
+    .Salariales input{
+        width: 20%;
+    }
+    /* Cerramos las clases para los botones */
+/* Cerramos la clase devengos */
+
+/* Clase deducciones */
+
+.deducciones h2{
+    padding: 8px 0px 0px 17px;
+}
+
+.deducciones{
+    width: 100%; 
+    border: 1px solid #000; 
+    margin: 0px 5px; 
+    box-sizing: border-box;
+}
+
+.deducciones ol{
+    padding-left: 30px;
+}
+
+.deducciones label{
+    padding-left: 16.5px;
+    padding-top: 10px;
+}
+
+
+/* Clase deducciones para separar la lista */
+.deducciones ol {
+    margin-top: 5px;
+}
+
+.deducciones li {
+    margin-bottom: 5px;
+}
+
+/* Clase especiales para label e input */
+.body label[for="TotalDeducir1"] {
+    margin-left: 350px; 
+    font-weight: bolder;
+}
+.body label[for="LiquidoTotalPercibir1"] {
+    margin-left: 225px; 
+    font-weight: bolder;
+}
+.body label[for="Firma"] {
+    margin-left: 75px; 
+    font-weight: bolder;
+}
+.body input[id=FechaDeducciones]{
+    margin-left: 700px;
+}
+
+/* Clase para evitar que se pueda editar (Usado en inputs principalmente) */
+.NoEditable {
+    pointer-events: none;
+    width: 50px;
+}
+
+/* Cerramos la clase deducciones */
+
+/* Clase determinacion */
+
+.determinacion{
+    width: 100%;
+    border: 1px solid #000; 
+    margin: 0px 5px; 
+    box-sizing: border-box; 
+}
+
+.determinacion h2{
+    font-size: 1em;
+    font-weight: normal;
+    padding: 8px 0px 0px 17px;
+}
+
+.determinacion ol{
+    padding-left: 30px;
+}
+
+.determinacion label[for=determinacionTOTAL]{
+    margin-left: 290px;
+}
+
+.determinacion label[for=determinacionATyEP]{
+    margin-left: 290px;
+}
+/* Cerramos clase determinacion */
+
+/* Clase para un div */
+.navAbajo {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+}
+
+/* Estilo para la primera palabra */
+.navAbajo .primera{
+    margin-right: 300px; 
+    margin-left: 300px;
+}
+
+
+/* FOOTER */
+
+footer{
+    width: 100%;
+
+    margin: 0px 5px; 
+    box-sizing: border-box; 
+}
+
+footer {
+    background-color: #837878;
+    color: rgb(255, 255, 255);
+    padding: 20px;
+    text-align: center;
+}
+
+.redesSociales a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.NoSalariales .calculados{
+    width: 10%;
+}
+
+.NoSalariales .lineados{
+    width: 28%;
+}
+
+.devengos .input-container{
+    border: none;
+    border-bottom: 4px solid black;
+    width: 100px;
+    margin-left: 60%;
+}
+
+@media screen and (max-width: 1600px) {
+    .header {
+        display: flex;
+        justify-content: space-between;
+    }
+    .header label,input{
+        padding-top: 2.5px;
+    }
+    
+    /* Class rectangle */
+    
+    .rectangle {
+        width: 50%;
+        height: 100px; 
+        border: 1px solid #000; 
+        margin: 5px; 
+        box-sizing: border-box;
+    }
+    
+  
+    
+    .rectangle > label, input{
+        margin-top: 5px;
+        margin-left: 9px;
+    }
+
+    /* Cerramos la clase header */
+    
+    /****************************************************************** Class body ******************************************************************/
+    
+    /* Class Nav */
+    .navArriba{
+        width: 100%; 
+        border: 1px solid #000; 
+        margin: 0px 5px;
+        box-sizing: border-box; 
+       
+    }
+
+    #TotalDias{
+        width: 60%;
+    }
+    
+    .navArriba label{
+        padding-left: 9px;
+    }
+    
+    /* Cerramos la clase nav */
+    
+    /* Class devengos */
+    
+        .body label[for="TotalDevengado1"] {
+            margin-left: 350px; /* Ajusta el valor según sea necesario para separar el label a la derecha */
+        }
+    
+        /* ESTE ES MUY IMPORTANTE, ya que es para lo p donde van a aparecer los datos calculados */
+        .devengos p.TotalDevengado{
+            border-bottom: 3px solid black;
+        }
+    
+        .devengos h2{
+            padding: 8px 0px 0px 17px;
+        }
+        .devengos ol{
+            padding-left: 30px;
+        }
+    
+        .devengos{
+            width: 100%;
+            border: 1px solid #000; 
+            margin: 0px 5px; 
+            box-sizing: border-box; 
+        }
+    
+        .devengos label{
+            padding-left: 16.5px;
+        }
+    
+        /* Clases para poner los bordes o punteados o lineas */
+    
+        .navArriba .doteados{
+            border: none;
+            border-bottom: dotted;
+        }
+    
+        .lineados{
+            border: none;
+            border-bottom: 3px solid black;
+        }
+        /* Cerramos las clases dot y lines */
+    
+        /* Clases para los botones de las secciones salariales y no salariales */
+        .NoSalariales input{
+            width: 6cqb;
+        }
+    
+        .Salariales input{
+            width: 20%;
+        }
+        /* Cerramos las clases para los botones */
+    /* Cerramos la clase devengos */
+    
+    /* Clase deducciones */
+    
+    .deducciones h2{
+        padding: 8px 0px 0px 17px;
+    }
+    
+    .deducciones{
+        width: 100%; 
+        border: 1px solid #000; 
+        margin: 0px 5px; 
+        box-sizing: border-box;
+    }
+    
+    .deducciones ol{
+        padding-left: 30px;
+    }
+    
+    .deducciones label{
+        padding-left: 16.5px;
+        padding-top: 10px;
+    }
+    
+    
+    /* Clase deducciones para separar la lista */
+    .deducciones ol {
+        margin-top: 5px;
+    }
+    
+    .deducciones li {
+        margin-bottom: 5px;
+    }
+    
+    /* Clase especiales para label e input */
+    .body label[for="TotalDeducir1"] {
+        margin-left: 350px; 
+        font-weight: bolder;
+    }
+    .body label[for="LiquidoTotalPercibir1"] {
+        margin-left: 225px; 
+        font-weight: bolder;
+    }
+    .body label[for="Firma"] {
+        margin-left: 75px; 
+        font-weight: bolder;
+    }
+    .body input[id=FechaDeducciones]{
+        margin-left: 700px;
+    }
+    
+    /* Clase para evitar que se pueda editar (Usado en inputs principalmente) */
+    .NoEditable {
+        pointer-events: none;
+        width: 50px;
+    }
+    
+    /* Cerramos la clase deducciones */
+    
+    /* Clase determinacion */
+    
+    .determinacion{
+        width: 100%;
+        border: 1px solid #000; 
+        margin: 0px 5px; 
+        box-sizing: border-box; 
+    }
+    
+    .determinacion h2{
+        font-size: 1em;
+        font-weight: normal;
+        padding: 8px 0px 0px 17px;
+    }
+    
+    .determinacion ol{
+        padding-left: 30px;
+    }
+    
+    .determinacion label[for=determinacionTOTAL]{
+        margin-left: 290px;
+    }
+    
+    .determinacion label[for=determinacionATyEP]{
+        margin-left: 290px;
+    }
+    /* Cerramos clase determinacion */
+    
+    /* Clase para un div */
+    .navAbajo {
+        display: flex;
+        justify-content: space-between;
+        padding: 30px;
+    }
+    
+    /* Estilo para la primera palabra */
+    .navAbajo .primera{
+        margin-right: 300px; 
+        margin-left: 300px;
+    }
+    
+    
+    /* FOOTER */
+    
+    footer{
+        width: 100%;
+    
+        margin: 0px 5px; 
+        box-sizing: border-box; 
+    }
+    
+    footer {
+        background-color: #837878;
+        color: rgb(255, 255, 255);
+        padding: 20px;
+        text-align: center;
+    }
+    
+    .redesSociales a {
+        color: white;
+        text-decoration: none;
+        margin: 0 10px;
+    }
+    
+    .NoSalariales .calculados{
+        width: 10%;
+    }
+    
+    .NoSalariales .lineados{
+        width: 28%;
+    }
+    
+    .devengos .input-container{
+        border: none;
+        border-bottom: 4px solid black;
+        width: 100px;
+        margin-left: 60%;
+    }
+}
+
+
+/* EDITAR */
+@media (max-width: 600px) {
+    .header {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    /* Class rectangle */
+    
+    .rectangle {
+        width: 50%;
+        height: 110px; 
+        border: 1px solid #000; 
+        margin: 5px; 
+        box-sizing: border-box;
+    }
+
+    .rectangle select{
+        width: 60px;
+    }
+    
+    .rectangle > input {
+        border: none;
+        border-bottom: 1px solid #000; 
+        width: 50%;
+    }
+    
+    .rectangle > label, input{
+        margin-top: 5px;
+        margin-left: 9px;
+    }
+    
+    .rectangle button{
+        width: 20px;
+        height: 20px;
+        background-color: #007bff;
+        color: #fff;
+        border-radius: 50%;
+    }
+    
+    .rectangle input[type=number]{
+        width: 30px;
+    }
+    
+    .rectangle select{
+        display: inline;
+    }
+    
+    
+    
+    /* Cerramos la clase header */
+    
+    /****************************************************************** Class body ******************************************************************/
+    
+    /* Class Nav */
+    .navArriba{
+        width: 100%; 
+        border: 1px solid #000; 
+        margin: 0px 5px;
+        box-sizing: border-box; 
+       
+    }
+
+    .navArriba label{
+        font-size: 15px;
+    }
+    
+    .navArriba input[type=number]{
+        width: 30px;
+        font-size: 14px; 
+        padding: 5px; 
+        
+        border: none;
+        border-bottom: dotted;
+    }
+    
+    .navArriba input[type=text]{
+        width: 120px; 
+        font-size: 14px;
+        padding: 5px; 
+    
+        border: none;
+        border-bottom: dotted;
+    }
+    
+
+    
+    /* Cerramos la clase nav */
+    
+    /* Class devengos */
+    
+        .body label[for="TotalDevengado1"] {
+            margin-left: 350px; /* Ajusta el valor según sea necesario para separar el label a la derecha */
+        }
+    
+        /* ESTE ES MUY IMPORTANTE, ya que es para lo p donde van a aparecer los datos calculados */
+        .devengos p.TotalDevengado{
+            border-bottom: 3px solid black;
+        }
+    
+        .devengos h2{
+            padding: 8px 0px 0px 17px;
+        }
+        .devengos ol{
+            padding-left: 30px;
+        }
+    
+        .devengos{
+            width: 100%;
+            border: 1px solid #000; 
+            margin: 0px 5px; 
+            box-sizing: border-box; 
+        }
+    
+        .devengos label{
+            padding-left: 16.5px;
+        }
+    
+        /* Clases para poner los bordes o punteados o lineas */
+    
+        .doteados{
+            border: none;
+            border-bottom: dotted;
+    
+        }
+    
+        .lineados{
+            border: none;
+            border-bottom: 3px solid black;
+        }
+        /* Cerramos las clases dot y lines */
+    
+        /* Clases para los botones de las secciones salariales y no salariales */
+        .NoSalariales input{
+            width: 6cqb;
+        }
+    
+        .Salariales input{
+            width: 20%;
+        }
+        /* Cerramos las clases para los botones */
+    /* Cerramos la clase devengos */
+    
+    /* Clase deducciones */
+    
+    .deducciones h2{
+        padding: 8px 0px 0px 17px;
+    }
+    
+    .deducciones{
+        width: 100%; 
+        border: 1px solid #000; 
+        margin: 0px 5px; 
+        box-sizing: border-box;
+    }
+    
+    .deducciones ol{
+        padding-left: 30px;
+    }
+    
+    .deducciones label{
+        padding-left: 16.5px;
+        padding-top: 10px;
+    }
+    
+    
+    /* Clase deducciones para separar la lista */
+    .deducciones ol {
+        margin-top: 5px;
+    }
+    
+    .deducciones li {
+        margin-bottom: 5px;
+    }
+    
+    /* Clase especiales para label e input */
+    .body label[for="TotalDeducir1"] {
+        margin-left: 350px; 
+        font-weight: bolder;
+    }
+    .body label[for="LiquidoTotalPercibir1"] {
+        margin-left: 225px; 
+        font-weight: bolder;
+    }
+    .body label[for="Firma"] {
+        margin-left: 75px; 
+        font-weight: bolder;
+    }
+    .body input[id=FechaDeducciones]{
+        margin-left: 700px;
+    }
+    
+    /* Clase para evitar que se pueda editar (Usado en inputs principalmente) */
+    .NoEditable {
+        pointer-events: none;
+        width: 50px;
+    }
+    
+    /* Cerramos la clase deducciones */
+    
+    /* Clase determinacion */
+    
+    .determinacion{
+        width: 100%;
+        border: 1px solid #000; 
+        margin: 0px 5px; 
+        box-sizing: border-box; 
+    }
+    
+    .determinacion h2{
+        font-size: 1em;
+        font-weight: normal;
+        padding: 8px 0px 0px 17px;
+    }
+    
+    .determinacion ol{
+        padding-left: 30px;
+    }
+    
+    .determinacion label[for=determinacionTOTAL]{
+        margin-left: 290px;
+    }
+    
+    .determinacion label[for=determinacionATyEP]{
+        margin-left: 290px;
+    }
+    /* Cerramos clase determinacion */
+    
+    /* Clase para un div */
+    .navAbajo {
+        display: flex;
+        justify-content: space-between;
+        padding: 30px;
+    }
+    
+    /* Estilo para la primera palabra */
+    .navAbajo .primera{
+        margin-right: 300px; 
+        margin-left: 300px;
+    }
+    
+    
+    /* FOOTER */
+    
+    footer{
+        width: 100%;
+    
+        margin: 0px 5px; 
+        box-sizing: border-box; 
+    }
+    
+    footer {
+        background-color: #837878;
+        color: rgb(255, 255, 255);
+        padding: 20px;
+        text-align: center;
+    }
+    
+    .redesSociales a {
+        color: white;
+        text-decoration: none;
+        margin: 0 10px;
+    }
+    
+    .NoSalariales .calculados{
+        width: 10%;
+    }
+    
+    .NoSalariales .lineados{
+        width: 28%;
+    }
+    
+    .devengos .input-container{
+        border: none;
+        border-bottom: 4px solid black;
+        width: 100px;
+        margin-left: 60%;
+    }
+
+
+}

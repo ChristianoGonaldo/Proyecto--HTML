@@ -1,0 +1,61 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 20px;
+    background-color: #f0f0f0;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+h1, strong {
+    color: #333;
+}
+
+#devolver  div, h1{
+    color: #e11212;
+    text-decoration: underline;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+div {
+    margin-top: 20px;
+}
+
+p {
+    margin: 0;
+}
+
+section{
+    border: 5px solid black;
+}
+
+
+/* PROBANDO */
+
+option[selected] {
+    font-weight: bold;
+}  
